@@ -1,24 +1,28 @@
 /**
  * Created by TOSHIBA on 5/27/2017.
  */
-import java.util.Scanner;
+
 public class Patient {
     private int id;
-    private String name, cnic, address, disease, hospitalOfAdmission;
+    private String name, cnic, address, hospitalOfAdmission;
+     public   String[] disease;
 
-    public Patient ( int id, String name, String cnic, String disease, String hostipalOfAdmission, String address ) {
+
+    public Patient ( ) {
         id = 0;
-        name =" null";
-        cnic ="  null";
-        disease = " null";
-        hostipalOfAdmission = " null";
-        address = " null";
+        name = null;
+        cnic = null;
+        disease = null;
+        hospitalOfAdmission = null;
+        address = null;
     }
-    public  Patient( int id1,  String name1, String cnic1,  String hostipalOfAdmission1, String address1){
+
+    public Patient ( int id1, String name1, String cnic1, String[] disease1, String hospitalOfAdmission1, String address1 ) {
         id = id1;
         name = name1;
+        disease = disease1;
+        hospitalOfAdmission = hospitalOfAdmission1;
         cnic = cnic1;
-        hostipalOfAdmission = hostipalOfAdmission1;
         address = address1;
 
     }
@@ -55,49 +59,21 @@ public class Patient {
         this.address = address;
     }
 
-    public String getDisease ( ) {
+    public String[] getDisease ( ) {
         return disease;
     }
 
-    public  void setDisease ( String disease ) {
+    public void setDisease ( String[] disease ) {
         this.disease = disease;
     }
 
-    public String getHospitalOfAdmission ( ) {
+    public String gethospitalOfAdmission ( ) {
         return hospitalOfAdmission;
     }
 
-    public void setHospitalOfAdmission ( String hospitalOfAdmission ) {
-        this.hospitalOfAdmission = hospitalOfAdmission;
+    public void sethospitalOfAdmission ( String hospitalOfName1 ) {
+        this.hospitalOfAdmission = hospitalOfName1;
     }
-     public class HospitalRecord {
-        public void searchPatientswithDisease( String disease){
-            String[ ] array ;
 
-        }
-     }
-
-    public static void main ( String[] args ) {
-        int id;
-        String name, cnic, nameOfHospital, address;
-
-        Scanner obj = new Scanner( System.in );
-        System.out.println(" Enter the id = " );
-        id = obj.nextInt();
-        System.out.println(" Enter the name of the patient = " );
-        name = obj.nextLine();
-        System.out.println(" Enter the cnic of the patient = " );
-        cnic = obj.nextLine();
-        System.out.println(" Enter the name  of hospital = " );
-        nameOfHospital = obj.nextLine();
-        System.out.println(" Enter the address = " );
-        address = obj.nextLine();
-
-
-        Patient object1;
-
-
-
-
-    }
 }
+
