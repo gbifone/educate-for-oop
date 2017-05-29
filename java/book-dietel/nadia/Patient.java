@@ -23,9 +23,7 @@ public class Patient {
         this.id = id;
         this.name = name;
         this.CNIC = CNIC;
-        for(int i = 0; i <= 5; i++) {
-            this.disease[i] =disease[i];
-        }
+        this.disease = disease;
         this.hospitalOfAdmission = hospitalOfAdmission;
         this.address = address;
     }
@@ -59,9 +57,7 @@ public class Patient {
     }
 
     public void setDisease(String[] disease) {
-        for(int i = 0; i <= 5; i++) {
-            this.disease[i] = disease[i];
-        }
+            this.disease = disease;
     }
     public String getHospitalOfAdmission() {
         return hospitalOfAdmission;
@@ -77,5 +73,10 @@ public class Patient {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String toString(){
+        return ( "id:" + this.id + "name:" + this.name + "CNIC" + this.CNIC  + "disease:" + this.disease +
+                "hospitalOfAdmission:" + this.hospitalOfAdmission + "address:" + this.address);
     }
 }

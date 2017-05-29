@@ -1,35 +1,18 @@
 /**
  * Created by Nadia on 5/27/2017.
  */
-import java.util.Scanner;
-
 public class HospitalRecord {
-    public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
-        HospitalRecord input = new HospitalRecord();
-        Patient obj = new Patient();
+    public Patient[] searchPatientsWithDisease(Patient[] arrOfPatient, String[] disease){
+        Patient[] matchDisease = new Patient[2];
+        for(int i = 0; i < 2 ; i++) {
+            for(int j = 0; j < 2; j++ ) {
+                if (arrOfPatient[i].getDisease()[j] == disease[i]) {
 
-        Patient obj1 = new Patient(1,"nadia","31303-246278-0",{"fever,Malaria"}, "Ali Hospital","shahi Road");
-
-        System.out.println("Enter your id:");
-        int id = in.nextInt();
-        obj.setId(id);
-        System.out.println("Enter your name:");
-        String name = in.nextLine();
-        obj.setName(name);
-        System.out.println("Enter your CNIC:");
-        String CNIC = in.nextLine();
-        obj.setCNIC(CNIC);
-        System.out.println("Enter your Disease:");
-        String[] disease = new String[5];
-        obj.setDisease(disease);
-        System.out.println("Enter the Name of Hospital:");
-        String hospital = in.nextLine();
-        obj.setHospitalOfAdmission(hospital);
-        System.out.println("Enter Address of the Hospital:");
-        String address = in.nextLine();
-        obj.setAddress(address);
-
+                    matchDisease[i] = arrOfPatient[i];
+                }
+            }
+        }
+        return matchDisease;
     }
 }
