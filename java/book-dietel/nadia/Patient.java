@@ -57,7 +57,10 @@ public class Patient {
     }
 
     public void setDisease(String[] disease) {
+        //for(int i =0; i < disease.length ; i++){
             this.disease = disease;
+           // System.out.println(this.disease[i]);
+        //}
     }
     public String getHospitalOfAdmission() {
         return hospitalOfAdmission;
