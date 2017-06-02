@@ -14,7 +14,12 @@ public class Driver
     }
 
     public void setId ( long id ) {
-        this.id = id;
+        if( id ==0){
+            System.out.println( " Invalid " );
+        }
+        else{
+            this.id = id;
+        }
     }
 
     public String getName ( ) {
@@ -22,7 +27,13 @@ public class Driver
     }
 
     public void setName ( String name ) {
-        this.name = name;
+
+        if( name == null){
+            System.out.println( " Invalid " );
+        }
+        else{
+            this.name = name;
+        }
     }
 
     public String getDriverTye ( ) {
@@ -30,7 +41,12 @@ public class Driver
     }
 
     public void setDriverTye ( String driverTye ) {
-        this.driverTye = driverTye;
+        if ( driverTye == null ){
+            System.out.println( " Invalid " );
+        }
+        else{
+            this.driverTye = driverTye;
+        }
     }
 
     public ArrayList <String> getVehicles ( ) {
@@ -38,11 +54,17 @@ public class Driver
     }
 
     public void setVehicles ( ArrayList <String> vehicles ) {
-        this.vehicles = vehicles;
+        if( vehicles == null){
+            System.out.println(" Invalid" );
+        }
+        else{
+            this.vehicles = vehicles;
+        }
+
     }
 
-    public String toString (){
+    public  String toString (){
 
-        return  this.getId() + this.getName() + this.getVehicles() +this.getDriverTye();
+        return  this.getId() + "  " + this.getName() + "  "+ this.getVehicles()+ "  " +this.getDriverTye();
     }
 }
