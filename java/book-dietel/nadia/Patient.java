@@ -1,15 +1,11 @@
-/**
- * Created by Nadia on 5/27/2017.
- */
-public class Patient {
 
+public class Patient {
     private int id;
     private String name;
     private String CNIC;
     private String[] disease;
     private String hospitalOfAdmission;
     private String address;
-
     public Patient (){
         this.id = 0;
         this.name = null;
@@ -18,7 +14,6 @@ public class Patient {
         this.hospitalOfAdmission = null;
         this.address = null;
     }
-
     public Patient(int id, String name, String CNIC, String[] disease, String hospitalOfAdmission, String address) {
         this.id = id;
         this.name = name;
@@ -27,7 +22,6 @@ public class Patient {
         this.hospitalOfAdmission = hospitalOfAdmission;
         this.address = address;
     }
-
     public int getId() {
         return id;
     }
@@ -57,10 +51,7 @@ public class Patient {
     }
 
     public void setDisease(String[] disease) {
-        //for(int i =0; i < disease.length ; i++){
             this.disease = disease;
-           // System.out.println(this.disease[i]);
-        //}
     }
     public String getHospitalOfAdmission() {
         return hospitalOfAdmission;
