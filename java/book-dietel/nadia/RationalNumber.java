@@ -8,6 +8,7 @@ public class RationalNumber {
         numerator = 0;
         denominator =1;
     }
+
     public RationalNumber(int numerator, int denominator) {
         if (numerator == 0) {
             numerator = 0;
@@ -21,6 +22,7 @@ public class RationalNumber {
             System.out.println(numerator + "/" + denominator);
         }
     }
+
     public static void addRationalNumber(int a,int b,int c,int d){
           int  num = Math.abs( a + c);
           int denom =Math.abs( b + d);
@@ -29,6 +31,7 @@ public class RationalNumber {
           denominator = denom /g;
         System.out.println("Sum of the Fraction " + a + "/" +  b + " + " + c + "/" + d + " = " + numerator + "/" + denominator);
     }
+
     public static void subRationalNumber(int a,int b,int c,int d){
         int  num = Math.abs( a - c);
         int denom =Math.abs( b - d);
@@ -37,6 +40,7 @@ public class RationalNumber {
         denominator = denom /g;
         System.out.println("Subtraction of the Fraction " + a + "/" +  b + " - " + c + "/" + d + " = " + numerator + "/" + denominator);
     }
+
     public static void mullRationalNumber(int a,int b,int c,int d){
         int  num = Math.abs( a * c);
         int denom =Math.abs( b * d);
@@ -45,6 +49,7 @@ public class RationalNumber {
         denominator = denom /g;
         System.out.println("Mulltiplication of the Fraction " + a + "/" +  b + " * " + c + "/" + d + " = " +numerator + "/" + denominator);
     }
+
     public static void divRationalNumber(int a,int b,int c,int d){
         int  num = Math.abs( a * d);
         int denom =Math.abs( b * c);
@@ -53,6 +58,7 @@ public class RationalNumber {
         denominator = denom /g;
         System.out.println("Division of the Fraction " + a + "/" +  b + " / " + c + "/" + d + " = " +numerator + "/" + denominator);
     }
+
     public static int gcd(int a, int b) {
         while (b != 0) {
             int t = b;
