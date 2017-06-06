@@ -127,7 +127,7 @@ COMPILE TIME		OR 			RUN-TIME
 xyz = '9'; // string
 
 var abc = function() {	// string
-	
+
 	return '10';
 }
 
@@ -185,7 +185,7 @@ Two main things:
 
 		* Functions use it's object's Data / Properties to perform their calculations	.
 
-		* Operations / Functions can change the state of an object. 
+		* Operations / Functions can change the state of an object.
 
 
 2) Object / Instance
@@ -221,7 +221,7 @@ Class: User
 		* performTransaction()		// related to behavior of an object
 		* transferFunds()
 		* editPersonalDetails()
-		* deactivateAccount()		
+		* deactivateAccount()
 		* getAddress()				// manipulation of object's data
 		* setAddress(address)		// manipulation of object's data
 
@@ -287,7 +287,7 @@ A constructor that does not take any arguments/parameters as input.
 Example:
 
 class UsersOfMyApp {
-	
+
 	private:
 		int userId;
 		string username;
@@ -337,7 +337,7 @@ UserOfMyApp() {
 
 
 
-SEPARATION OF CONCERNS aka MODULARITY aka LOOSE COUPLING 
+SEPARATION OF CONCERNS aka MODULARITY aka LOOSE COUPLING
 --------------------------------------------------------
 
 Concept: Suppose I have a toy that consists of three parts. I consider a toy to be perfect, if changing/modifying one part of this toy, does not disturb the other two parts.
@@ -459,7 +459,7 @@ THIRD FILE OR MAIN FILE
 ************************
 
 int main () {
-	
+
 	ScientificCalculator calculator;	// Java syntax also includes = new ScientificCalculator();
 
 	int resultOfAddition = calculator.add(9, 8);
@@ -511,7 +511,7 @@ JAVA
 =================================================================================================================================
 
 
-Topics: 
+Topics:
 	- static methods
 	- non-static methods
 
@@ -519,7 +519,7 @@ Topics:
 Code:
 
 public class InterestCalculator {
-	
+
 	// data members
 	public long balance;
 
@@ -572,7 +572,7 @@ public class Test {
 	public String Employee2 = "Nadia";
 	public String Employee3 = "Kinza";
 	public String Employee4 = "Aqsa";
-	
+
 	// static function
 	public static String getName() {
 		return this.name;
@@ -625,8 +625,8 @@ public class MyClass {
 
 		obj.setData(1, "Aqsa");
 		String str = obj.getData();
-		
-		System.out.println("Your data is: " + str);		
+
+		System.out.println("Your data is: " + str);
 		// Output:
 		// 0 1 2 3 4 5 6 7 8 9
 		// Customer Name is: Madiha
@@ -737,9 +737,9 @@ public class ScoreCalculator {
 		addValues(9, 7, 4);		// output: 20
 		addValues(4, 3, 2, 1);	// output: 10
 
-		subtractValues(9.6, 1, 1);	// output: 
-		subtractValues(5, 1, 1.0);	// output: 
-		subtractValues(5, 2.0, 1);	// output: 
+		subtractValues(9.6, 1, 1);	// output:
+		subtractValues(5, 1, 1.0);	// output:
+		subtractValues(5, 2.0, 1);	// output:
 	}
 }
 
@@ -822,7 +822,7 @@ class Main() {
 	public static void main(String[] args) {
 		Person obj = new Person(); 		// new object created
 		Person[] arrayOfPersons = new Person(10);		// array of empty objects
-		
+
 		for(int i=0; i<arrayOfPersons.length; i++) {	// now each index has a Person object
 			arrayOfPersons[i] = new Person();
 		}
@@ -830,7 +830,7 @@ class Main() {
 		Person[] myReturnedArrOfPersons = processData(arrOfPersons);
 	}
 
-	// a pure function that takes an array and returns it's copy, without processing anything. 
+	// a pure function that takes an array and returns it's copy, without processing anything.
 	public Person[] processData(Person[] arrayOfPersons) {
 		Person[] copyOfArray = arrayOfPersons;
 		return copyOfArray;
@@ -937,4 +937,253 @@ Types of access specifiers:
 - protected: access not allowed outside the package,, but allowed inside the package
 - public: all access allowed, across the packages
 
+// INHERITANCE
+A child class can inherit from Parent class in order to re-use Parent's state / data members and functionality of Parent as well.
+Real life example: relationship between you and your father
+Inheritance is an "is-a" relationship.
+ 		Examples: A car (child) is a Vehicle (Parent).
+							A student (child) is a User (Parent).
 
+/////////////////////////////////////////////////////////////////////////
+
+// POLYMORPHISM
+POLY = means many shapes, different shapes.
+
+Definition: Polymorphism is a technique in which we decide the type of an object
+						on runtime.
+						Previously we were setting the data-type of object on compile time.
+
+POLYMORPHISM in REAL LIFE:
+						- A mother is an object. A mother has different responsibilities,
+						such as cooking, teaching, cleaning home and so on..
+								* The role of Mother changes according to the situation at hand.
+						- A Software Engineer is a person that can take requirements, create
+						analysis reports, develop/code the application, test the application
+						and even fix the application.
+								* The role/responsibilities of Engineer change according to situation.
+
+POLYMORPHISM IN OOP:
+					- An object can have multiple behaviors/responsibilities based on it's
+					context.
+					- We can provide multiple behaviors of an object on run-time, dynamically,
+					so that the object behaves according to our requirements in different places.
+					- As we know that the type of object is it's class, we also understand that the
+					type of a derived object is it's class OR it's parent class.
+								Example:
+									suppose we have Car derived class from Vehicle.
+									the type of "Car myCar = new Car();" is Vehicle as well as Car.
+					- In Polymorphism, we will change the type of object dynamically.
+					- There are two types of Polymorphisms:
+							1- static Polymorphism (via functions)
+							2- dynamic Polymorphism (via Objects / Classes)
+									-> via inheritance
+									-> via interfaces
+
+
+POLYMORPHISM via INHERITANCE
+
+Code Example:
+
+public class User {
+	protected int id;
+	protected String name;
+
+	public User() {}
+
+	public User(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public String performCalculations(int a, int b) {
+		int result = a + b;
+		return "result: " + result;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				'}';
+	}
+}
+
+public class Teacher extends User {
+	private String teacherId;
+	private String school;
+
+	public Teacher() {}
+
+	public Teacher(int id, String name, String teacherId, String school) {
+		super(id, name);
+		this.teacherId = teacherId;
+		this.school = school;
+	}
+
+	@Override
+	public String performCalculations(int a, int b) {
+		int result = a + (b*10);
+		return "result: " + result;
+	}
+
+	@Override
+	public String toString() {
+		return "Teacher{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", teacherId='" + teacherId + '\'' +
+				", school='" + school + '\'' +
+				'}';
+	}
+}
+
+public class Clerk extends User {
+	private String clerkId;
+	private String[] responsibilities;
+
+	public Clerk(int id, String name, String clerkId, String[] responsibilities) {
+		super(id, name);
+		this.clerkId = clerkId;
+		this.responsibilities = responsibilities;
+	}
+
+	@Override
+	public String performCalculations(int a, int b) {
+		int result = (a*10) - (b*10);
+		return "result: " + result;
+	}
+
+	@Override
+	public String toString() {
+		return "Clerk{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", clerkId='" + clerkId + '\'' +
+				", responsibilities=" + Arrays.toString(responsibilities) +
+				'}';
+	}
+}
+
+public class Student extends User {
+	private String classOfStudent;
+	private int scores;
+
+	public Student(int id, String name, String classOfStudent, int scores) {
+		super(id, name);
+		this.classOfStudent = classOfStudent;
+		this.scores = scores;
+	}
+
+	@Override
+	public String performCalculations(int a, int b) {
+		int result = (a*11) * (b+10);
+		return "result: " + result;
+	}
+
+	@Override
+	public String toString() {
+		return "Student{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", classOfStudent='" + classOfStudent + '\'' +
+				", scores=" + scores +
+				'}';
+	}
+}
+
+public class UserDriver {
+	public static void main(String[] args) {
+		String[] clerkResponsibilities = new String[]{"fees", "attendance"};
+		User[] listOfTeachers = new Teacher[2];
+		User[] listOfClerks = new Clerk[2];
+		User[] listOfStudent = new Student[2];
+
+		User[] listOfUsers = new User[10];
+
+		// incoming data is a list of Users.
+		// User can be Teacher, Clerk, Student.
+		// We have to process each of them according to their types.
+
+		User teacher = new Teacher(1, "Nadia", "009", "DexDevs Technical School");
+		User clerk = new Clerk(2, "Kinza", "C56", clerkResponsibilities);
+		User student = new Student(3, "Inam", "9th", 67);
+
+		User teacher2 = new Teacher(4, "ali", "007", "DexDevs Technical School");
+		User clerk2 = new Clerk(5, "ahmed", "C90", clerkResponsibilities);
+		User student2 = new Student(6, "hafeez", "4th", 98);
+
+		User anotherObject = new Teacher();     // allowed
+	/*  User oneMoreObject = new Salesman();    // not allowed because datatypes are different on LHS and RHS */
+
+		if (teacher instanceof User && teacher2 instanceof User) {
+			System.out.println("\n\nTeacher is a User.");
+		}
+
+		if (clerk instanceof User && clerk2 instanceof User) {
+			System.out.println("Clerk is a User.");
+		}
+
+		if (student instanceof User && student2 instanceof User) {
+			System.out.println("Student is a User.");
+		}
+
+		// add objects to respective arrays
+		listOfTeachers[0] = teacher;
+		listOfTeachers[1] = teacher2;
+
+		listOfClerks[0] = clerk;
+		listOfClerks[1] = clerk2;
+
+		listOfStudent[0] = student;
+		listOfStudent[1] = student2;
+
+		System.out.println("\n\nPrinting Teachers");
+		for (int i=0; i<listOfTeachers.length; i++) {
+			System.out.println(listOfTeachers[i]);
+		}
+
+		System.out.println("\nPrinting Clerks");
+		for (int i=0; i<listOfClerks.length; i++) {
+			System.out.println(listOfClerks[i]);
+		}
+
+		System.out.println("\nPrinting Students");
+		for (int i=0; i<listOfStudent.length; i++) {
+			System.out.println(listOfStudent[i]);
+		}
+
+		// add objects to Users array
+		listOfUsers[0] = teacher;
+		listOfUsers[1] = teacher2;
+
+		listOfUsers[2] = clerk;
+		listOfUsers[3] = clerk2;
+
+		listOfUsers[4] = student;
+		listOfUsers[5] = student2;
+
+		System.out.println("\n\nPrinting Users");
+		for (int i=0; i<listOfUsers.length; i++) {
+			System.out.println(listOfUsers[i]);
+		}
+
+		// magic
+		System.out.println("\n\nMagic Trick");
+		for (int i=0; i<listOfUsers.length; i++) {
+			if (listOfUsers[i] != null) {
+				System.out.println(listOfUsers[i].toString());
+			}
+		}
+
+		// polymorphic magic: different behavior for different objects
+		System.out.println("\n\npolymorphic magic: different behavior for different objects");
+		for (int i=0; i<listOfUsers.length; i++) {
+			if (listOfUsers[i] != null) {
+				System.out.println("executing performCalculations(10, 20) for listOfUsers[" + i + "]\t" + listOfUsers[i].performCalculations(10, 20));
+			}
+		}
+	}
+}
+
+									
