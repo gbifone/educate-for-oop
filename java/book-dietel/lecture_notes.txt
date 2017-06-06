@@ -1,0 +1,940 @@
+
+// Some general information regarding programming
+// Paradigm = Style
+// Programming Paradigms, such as Procedural, OO, Reactive, many more..
+
+
+// PROCEDURAL
+int x = 1;
+int y = 7;
+
+cout << x+y; // desired output: 3 || bad one: 8
+
+x++;
+y++;
+
+x++ + ++y;
+
+cout << x <<y; // desired output: x: 3 || y: 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Function-oriented Programming (different from Functional Programming)
+
+// Function declaration
+int addVariables(int a, int b);
+int subtractVariables(int a, int b);
+void welcomeTheUser();
+void showEndingGreetings();
+
+void main() {
+	string userName;
+	cin<<userName;
+	welcomeTheUser(userName);
+	// main processing
+	int result1 = addVariables(7, 8);
+	int result2 = subtractVariables(10, 12);
+	showEndingGreetings(userName);
+}
+
+void welcomeTheUser(string userName) {
+	cout<<"Welcome to my program, Mr. " + userName;
+}
+
+void showEndingGreetings(string userName) {
+	cout<<"Thank you for using my program!";
+	cout<<"Bye " + userName;
+}
+
+
+// Function Definitions
+int addVariables(int a, int b) {
+	return a + b;
+}
+
+int subtractVariables(int a, int b) {
+	a++;
+	a--;		// processing
+	b--;
+	--b;
+	return a - b;
+}
+
+
+// Functions
+- declaration		(Example of variable: int i;)
+- definition		(Example of variable: int i = 100;)
+
+
+
+
+// Anotmoy of a Function -> Parts of a Function
+
+1: return type (can be: void, int, double, float, boolean, string ..)
+2: function name
+3: params list
+4: body
+5: return statement if required
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Two type of languages:
+- Loosely-typed (Examples: PHP, JS, Ruby, Python) (Scripting Languages) (Interpreted Languages)
+- Strongly-typed (C, C++, Java, C#)	(compiled languages)
+
+
+Whether to determine the data-type of a variable on:
+
+COMPILE TIME		OR 			RUN-TIME
+
+xyz = '9'; // string
+
+var abc = function() {	// string
+	
+	return '10';
+}
+
+
+
+
+
+
+Difference parameters and arguments.
+
+No practical difference. Only theoretical difference.
+
+
+- parameters are in function declarations.
+- arguments are in funciton definitions.
+
+
+
+
+void myGoodFunction(int abc, int def);		// declaration | parameters
+
+void myGoodFunction(int abc, int def) {
+	// definitions 	| arguments
+}
+
+// function call
+myGoodFunctions(8, 9);		// arguments
+
+
+
+
+
+
+OOP = Object Oriented Paradigm
+
+Why OOP?
+ - lack of representation of state / data
+ - maintainability
+ - reusability
+ - ...
+
+
+OOP in Real Life
+----------------
+
+
+Two main things:
+
+1) Template / Class		(Example: Human class)
+		a) Data / Properties 		(Example: 2 eyes, 1 nose, 2 ears, 1 head, 2 feet, 2 hand, 5 fingers per hand)
+		b) Functions / Operations	(Example: eat(); sleep(); run(); study(); observe(); listen(); understand(); )
+
+		* Values of Data / Properties can be different for each object.
+			Example: A human object, like me, I may have 1 ear, 1 feet. 4 fingers.
+
+		* Functions use it's object's Data / Properties to perform their calculations	.
+
+		* Operations / Functions can change the state of an object. 
+
+
+2) Object / Instance
+
+
+
+
+
+
+
+COMPUTING EXAMPLE OF CLASSES AND OBJECTS
+----------------------------------------
+
+// Target Application: Banking
+
+// People, Money, Transactions, Govt / Regulatory authority, Customer-facing interfaces (Mobile, Web, SMS alerts).
+
+
+Class: User
+	- properties / data members
+		* userId
+		* userName
+		* userFatherName & userMotherName
+		* mobileNumber
+		* address
+		* occupation
+		* balance
+
+	- functions
+		* signUp()
+		* login()
+		* checkBalance()
+		* performTransaction()		// related to behavior of an object
+		* transferFunds()
+		* editPersonalDetails()
+		* deactivateAccount()		
+		* getAddress()				// manipulation of object's data
+		* setAddress(address)		// manipulation of object's data
+
+
+////////////////////////////////////////////////////////////
+user: Nadia			|  Anas: userId: 569
+
+- properties
+ * userId: 1
+ * userName: Nadia Gull
+ * userFatherName: Father of Nadia Gull
+ * -----
+ * -----
+ * -----
+ * balance: 10
+
+- functions
+
+ * checkBalance() {
+ 	// uses userId
+ 	// perform calculation to check balance
+ }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+CONSTRUCTORS (derived from word, Construction)				// DESTRUCTORS (special functions executed at the end of an object's life.)
+------------
+
+A special function that is executed on each object's creation.
+
+Real life Example of Constructor: Prayer calling in ears of a new born baby.
+
+Constructor in Programming
+--------------------------
+- it's name is exactly same as the Class name.
+- it has no return type. It won't return any value.
+- it can accept parameters, and any number of parameters.
+- a class can have multiple constructors, that perform different functionality.
+
+Purpose of Constructor: To initialize data members / state of an object.
+
+A Use-case of Constructor - why do we even need it?
+--------------------------------------------------
+Suppose you have a web application in which users can login. Users of your application are in Millions. Therefore, whenever a new user signs up, you need to ask certain information from the user, so that you can:
+- uniquely identify (that) user (through giving him some ID, at the time of creation)
+- store data respective of that user, in the database.
+
+
+
+Types of Constructor:
+---------------------
+* Default Constructor aka No-argument Constructor
+* Copy Constructor (advanced topic)
+* Overloaded Constructor (advanced topic)
+
+
+
+Default Constructor:
+--------------------
+A constructor that does not take any arguments/parameters as input.
+
+Example:
+
+class UsersOfMyApp {
+	
+	private:
+		int userId;
+		string username;
+
+	public:
+		UsersofMyApp() {	// default constructor specifically written by you
+			userId = 1;						// setting up dummy
+			username = "Dummy Name";		// values for data members
+		}
+
+		// getter
+		// setter
+
+		void calculateAverage() {
+			// some logic
+		}
+}
+
+
+
+* If you don't write a default constructor yourself, then C++ compiler/runtime will create a default constructor automatically for you.
+
+* If you do write a default constructor, then C++ runtime won't create a constructor.
+
+
+// Example of a C++ created default constructor
+UserOfMyApp() {
+	userId = 0;				// integer / long
+	username = null;		// string
+	balance = 0.0;			// double / float / long
+	isMyUserMad = false;	// boolean
+	gender = null;			// character
+}
+
+
+* C++ runtime will intialize all data members /properties according to their data-type.
+
+* One more rule: If you write your own default constructor and do not initialize all data members, then the reamining (un-initialized) data members will be intializd by the C++ runtime automatically.
+
+Example:
+--------
+UserOfMyApp() {
+	userId = 111;			// init
+	username = "Inam";		// init
+	isMyUserMad = false;	// init
+}
+
+
+
+SEPARATION OF CONCERNS aka MODULARITY aka LOOSE COUPLING 
+--------------------------------------------------------
+
+Concept: Suppose I have a toy that consists of three parts. I consider a toy to be perfect, if changing/modifying one part of this toy, does not disturb the other two parts.
+
+TOY: [A, B, C]
+
+If I change Part A, then B, C parts should remain as they were (they don't change).
+Vice versa for B and C.
+
+
+SEPARATION OF CONCERNS aka MODULARITY in PROGRAMMING:
+-----------------------------------------------------
+
+Why do we even care about Modularity in Software?
+
+Ripple Effect in Software
+
+Literally thousands of techniques exist to make a software modular. (Coding, Architecture, Management, Business etc..)
+
+We will discuss Code Management in different files.
+
+
+CODING IN SEPARATE FILES
+------------------------
+
+Patterns:
+ 1- [DECLARE] declare functionality of a class in one file (prototype)
+ 2- [DEFINE] define functionality of a class in another separate file (concrete definition)
+ 3- [USE] create and use that class's objects in a separate file
+
+(Acronym to remember: D.D.U)
+
+
+1) : Declaring functionality
+--
+
+FIRST FILE OR HEADER FILE aka INTERFACE
+****************************************
+class ScientificCalculator() {
+	private:
+		int variable1;
+		int variable2;
+		char operator;
+
+	public:
+		ScientificCalculator();		// declared constructor
+		int add(int x, int y);
+		int subtract(int x, int y);
+		int modulo(int x, int y);
+
+		// getters for all data members
+		// setters for all data members
+};
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+2): Define functionality of my class
+--
+
+SECOND FILE 	(pseudo-code, not exact code of C++)
+***********
+class ScientificCalculator() {
+	public:			// access specifiers
+		ScientificCalculator() {		// default constructor
+			variable1, variable2 = 0;
+			operator = null;
+		}
+
+		int add(int x, int y) {
+			return (x+y);
+		}
+
+		int subtract(int x, int y) {
+			return (x-y);
+		}
+
+		int modulo(int x, int y) {
+			return (x%y);
+		}
+
+		// getters for all data members
+		// setters for all data members
+};
+
+EXACT SYNTAX OF C++ for DEFINITION OF FUNCTIONALITY OF A CLASS
+------------------------------------------------
+Syntax of Scope resolution: class name preceeding with a double semicolon symbol,
+which is also known as scope resolution operator.
+
+Example: ClassName::FunctionName()
+------------------------------------------------
+
+ScientificCalculator::ScientificCalculator() {		// default constructor
+	variable1, variable2 = 0;
+	operator = null;
+}
+
+int ScientificCalculator::add(int x, int y) {
+	return (x+y);
+}
+
+int ScientificCalculator::subtract(int x, int y) {
+	return (x-y);
+}
+
+int ScientificCalculator::modulo(int x, int y) {
+	return (x%y);
+}
+
+// getters for all data members
+// setters for all data members
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+3): Use the class
+
+THIRD FILE OR MAIN FILE
+************************
+
+int main () {
+	
+	ScientificCalculator calculator;	// Java syntax also includes = new ScientificCalculator();
+
+	int resultOfAddition = calculator.add(9, 8);
+	int resultOfModulo = calculator.modulo(80, 9);
+
+	cout<< "resultOfAddition: " << resultOfAddition;
+	return 0;
+}
+
+
+------------------------------------------------------------
+
+REAL BENEFIT OF FOLLOWING THIS CODING APPROACH
+
+
+- Any other person can provide an implementation of my class. By implementation, I mean, that the functionality of declared functions can be defined in a separate way, as wished by some other developer.
+
+
+OTHER IMPLEMENTATION DONE BY SIR FARAZ FOR SCIENTIFIC CALCULATOR CLASS
+-----------------------------------------------------------------------
+ScientificCalculator::ScientificCalculator() {		// default constructor
+	variable1, variable2 = 567;
+	operator = "/";
+}
+
+int ScientificCalculator::add(int x, int y) {
+	return (x+1) + (y+5);
+}
+
+int ScientificCalculator::subtract(int x, int y) {
+	return (x+1) - (y+5);
+}
+
+int ScientificCalculator::modulo(int x, int y) {
+	return (x+1) / (y+5);;
+}
+
+// getters for all data members
+// setters for all data members
+
+SEPARATION OF INTERFACE AND IMPLEMENTATION
+SEPARATION OF INTERFACE FROM IMPLEMENTATION
+
+
+=================================================================================================================================
+
+JAVA
+
+=================================================================================================================================
+
+
+Topics: 
+	- static methods
+	- non-static methods
+
+
+Code:
+
+public class InterestCalculator {
+	
+	// data members
+	public long balance;
+
+
+	// calculate compound interest
+	public static long calculateCompoundInterest(long amount, long years) {
+		// compound interest rate for my company is 7%
+		return (amount * 0.07 * years);
+	}
+
+	// get user's balance
+	public long getBalance() {
+		return this.balance;	// this represents current object
+	}
+
+	// main function
+	public static void main(String[] args) {
+
+		InterestCalculator myObj = new InterestCalculator();
+
+		System.out.println("Hello and Welcome!");
+
+		// let's check the 3 methods to call the function
+
+		// Method 1: calling function within same class
+		long compoundInterest = calculateCompoundInterest(800, 2);
+		System.out.println("Your compount interest is: " + compoundInterest);
+
+		// Method 2: calling member function of a class, i.e., instance function / member function
+		long balance = myObj.getBalance();
+		System.out.println("Your balance is: " + balance);		// shortcut: Sout + Tab
+
+		// Method 3: calling Class Functions, i.e., static functions
+		String nameOfDevs = Test.getName();
+		System.out.println("Name of devs is: " + nameOfDevs);		// output: Name of devs is: Sleeping DexDevs
+
+
+		// some other examples
+		Test yourObject = new Test();
+		String nameOfEmployees = yourObject.getEmployeeNames();
+		System.out.println("Employees of DexDevs are: " + nameOfEmployees);
+	}
+}
+
+
+public class Test {
+	// data members
+	public String name = "Sleeping DexDevs.";
+	public String Employee1 = "Madiha";
+	public String Employee2 = "Nadia";
+	public String Employee3 = "Kinza";
+	public String Employee4 = "Aqsa";
+	
+	// static function
+	public static String getName() {
+		return this.name;
+	}
+
+	// a regular function
+	public String getEmployeeNames() {
+		return (Employee1 + '\n' + Employee2 + '\n' + Employee3 + '\n' + Employee4 + '\n');
+	}
+}
+
+
+
+// Variable Scoping
+
+public class MyClass {
+	public int id;
+	public String name;
+
+	public String getData() {
+		// shadowing variable scoping
+		int id = 999;
+		int name = "Ahmed";
+
+		for (i=0; i<10; i++) {
+			System.out.print(i + " ");
+		}
+		int i = 55;
+
+		if (1==1) {
+			String customerName = "Madiha";
+			System.out.println("Customer Name is: " + customerName);
+		}
+
+		// changing customerName
+		customerName = "Kinza";
+		System.out.println("New name of customer is: " + customerName);
+
+
+		return (id + "-" + name + "-" + i);		// last value of i = 10
+	}
+
+	public void setData(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	public static void main(String[] args) {
+		MyClass obj = new MyClass();
+
+		obj.setData(1, "Aqsa");
+		String str = obj.getData();
+		
+		System.out.println("Your data is: " + str);		
+		// Output:
+		// 0 1 2 3 4 5 6 7 8 9
+		// Customer Name is: Madiha
+		// Error: customerName is undefined
+		// Your data is: 999-Ahmed-55
+	}
+}
+
+///////////////////////////////
+
+METHOD OVERLOADING
+
+Definition: Defining functions with same signature / name and:
+	1) different parameters
+	2) different number of parameters
+	3) different positioning of parameters
+	4) different return type of function
+
+public class ScoreCalculator {
+	public int id;
+	public String name;
+	public String courseName;
+	public String grade;
+
+	// constructor
+	// getter setter functions for all fields
+
+	// Method Overloading
+	// Approach 1: different (data-types of) parameters
+	public String getGrade(int id) {
+		// search student record with id = id (input parameter)
+		ScoreCalculator obj = getRecordFromDBwithId(id);
+		return obj.grade;
+	}
+	public String getGrade(String name) {
+		// search student record with name = name (input parameter)
+		ScoreCalculator obj = getRecordFromDBwithName(name);
+		return obj.grade;
+	}
+
+	public String getName(String name, float id) {
+		return name + "---" + id;
+	}
+	public String getName(String name, int id) {
+		return name + "---" + id;
+	}
+	public String getName(char name, int id) {
+		return name + "---" + id;
+	}
+
+	// -------------------------------------------------------------------------------
+	// Approach 2: different number of parameters
+	public int addValues(int a, int b, int d, int c) {
+		return d + c + a + b;
+	}
+	public int addValues(int a, int b, int c) {
+		return b + a + c;
+	}
+	// -------------------------------------------------------------------------------
+	// Approach 3: different positioning of parameters
+
+	public float subtractValues(int a, int b, float c) {			// compiler sees: subtractValues(int, int, float)
+		return c - b - a;
+	}
+
+	public float subtractValues(float c, int a, int b) {			// compiler sees: subtractValues(float, int, int)
+		return c - b - a;
+	}
+
+	public float subtractValues(int c, float a, int b) {			// compiler sees: subtractValues(int, float, int)
+		return c - b - a;
+	}
+
+	// -------------------------------------------------------------------------------
+	// Approach 4: different return types
+
+	public long multiplyValues(int p, int q) {
+		return p * q;
+	}
+
+	public double multiplyValues(int p, int q) {
+		return p * q;
+	}
+
+	public int multiplyValues(int p, int q) {
+		return p * q;
+	}
+
+	public String multiplyValues(int p, int q) {
+		return "" + p*q;
+	}
+
+	// -------------------------------------------------------------------------------
+
+
+	public static void main(String[] args) {
+		ScoreCalculator calc = new ScoreCalculator();
+		// imagine I have set the data of object via setter methods
+
+		String result = cal.multiplayValues(1, 2);		// output: "2"
+		int result = cal.multiplayValues(1, 2);			// output: 2	// int
+		long result = cal.multiplayValues(1, 2);		// output: 2	// long
+		double result = cal.multiplayValues(1, 2);		// output: 2.0	// double
+
+		calc.getGrade(4);
+		addValues(9, 11);		// output: Error: undefined function
+		addValues(8, 5, 6);		// output: 19
+		addValues(9, 7, 4);		// output: 20
+		addValues(4, 3, 2, 1);	// output: 10
+
+		subtractValues(9.6, 1, 1);	// output: 
+		subtractValues(5, 1, 1.0);	// output: 
+		subtractValues(5, 2.0, 1);	// output: 
+	}
+}
+
+// -------------------------------------------------------------------------------
+
+
+ARRAY OF OBJECTS
+
+class MyClass {
+	public static void main(String[] args) {
+
+		int score = 10;
+		// data type of array + square brackets + space + name of variable
+		//Example:
+		//	int[] myArray;
+
+
+		int[] myArray = ;
+		System.out.println("Score is: " + score);
+		System.out.println("Array is: " + myArray);
+	}
+}
+
+// -------------------------------------------------------------------------------
+/*Passing Arrays to Methods
+
+Things to remembers:
+ 1- array in function declaration / definition
+ 2- passing array to a function
+ 3- returning array from a function
+*/
+
+ public class MyClass {
+ 	public static void main(String[] args) {
+ 		MyClass obj = new MyClass();
+ 		String[] arrOfStrings = new String(5);		// empty arr
+ 		arrOfStrings[0] = 'Aqsa'; arrOfStrings[1] = 'Madiha'; arrOfStrings[2] = 'Kinza'; arrOfStrings[3] = 'Nadia'; arrOfStrings[4] = 'Ahmed';
+ 		int length = arrOfStrings.length;
+
+ 		// passing array to function, syntax: ONLY NAME OF THE VARIABLE, JUST LIKE OTHER TYPES OF VARIABLES
+ 		obj.doSomething(arrOfStrings, length);
+
+ 		// receive / catch returned-value from a function
+ 		// syntax: declare a new variable with same data type = return type of function
+ 		String[] myReturnedString = doSomething(arrOfNames, lengthOfArray);
+
+ 		for (str: myReturnedString) {
+ 			System.out.println(str);			// Nadia is a developer at DexDevs.
+ 		}										// Ahmed is a developer at DexDevs.
+ 	}
+
+ 	// return type => data type of array => dataType[]
+ 	public String[] doSomething(String[] arrOfNames, int lengthOfArray) {
+ 		String[] newArray = new String(5);
+
+ 		for (int i=0; i<lengthOfArray; i++) {
+ 			String designation = " is a developer at DexDevs.";
+ 			newArray[i] = arrOfNames[i] + designation;		// Aqsa is a developer at DexDevs.
+ 			System.out.println("Hello, " + arrOfNames[i] +" how are you?");	// Hello, Madiha how are you?
+ 		}
+
+ 		// return array, syntax: only write name of variable
+ 		return newArray;
+ 	}
+ }
+
+ // array declaration::: String[] arrOfStrings = new String(5);
+ // LHS of array declaration is used to set an array parameter in a function's param list.
+
+ // output: Hello, Aqsa how are you?
+ // 		Hello, Kinza how are you?
+ //			Hello, Madiha how are you?
+ //					........
+ //					........
+
+
+ class Person {int id, String name; public String toString() { return ("id: " + this.id + ", name: " + this.name);}}
+
+class Main() {
+	public static void main(String[] args) {
+		Person obj = new Person(); 		// new object created
+		Person[] arrayOfPersons = new Person(10);		// array of empty objects
+		
+		for(int i=0; i<arrayOfPersons.length; i++) {	// now each index has a Person object
+			arrayOfPersons[i] = new Person();
+		}
+
+		Person[] myReturnedArrOfPersons = processData(arrOfPersons);
+	}
+
+	// a pure function that takes an array and returns it's copy, without processing anything. 
+	public Person[] processData(Person[] arrayOfPersons) {
+		Person[] copyOfArray = arrayOfPersons;
+		return copyOfArray;
+	}
+}
+
+// Person[ssszss
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ class Main {
+ 	public static void main(String[] args) {
+ 		Person p1 = new Person();
+ 		Person[] arrOfPersons = new Person(10);
+
+ 		for(int i; i<arrOfPersons.length; i++) {
+ 			arrOfPersons[i] = new Person();
+ 		}
+
+ 		Person[] myReturnedArrOfPersons = processData(arrOfPersons);
+
+ 		for(person: myReturnedArrOfPersons) {
+ 			System.out.println(person.toString());
+ 		}
+ 	}
+
+ 	// simple function that takes arrayOfPersons and just returns it, without performing any calculations.
+ 	public Person[] processData(Person[] arrOfPersons) {
+ 		// body
+ 		Person[] copyOfArray = arrOfPersons;
+ 		return copyOfArray;
+ 	}
+ }
+
+ // Person[] arrOfPersons = new Person(10);
+
+
+
+
+ Main principles of OOP:
+ - PIE = Polymorphism, Inheritance, Encapsulation
+ - AD = Abstraction, Data-hiding
+
+
+ Data-Hiding
+ -----------
+
+ - restrict/limit access to an object's state by other members via access specifiers.
+ - make all variables of your class "private". Write getters and setters to provide outside access to them.
+ 	+ we are not allowing direct access / manipulation to data members.
+
+ public class Driver {
+ 	// data members
+ 	private int id;
+ 	private String name;
+ 	private int age;
+ 	private long salary;
+
+ 	// getter setters
+ 	//	...	...
+ 	public long getSalary() {
+ 		return this.salary;
+ 	}
+
+ 	public void setName(String name) {
+ 		this.name = name;
+ 	}
+
+ 	// functionality
+ 	//	...	...
+
+ 	private long calculateBonusForDriver {
+ 		// Note: this function must not be accessible outside the class
+ 		return this.getSalary() * (age / 10)
+ 	}
+ }
+
+
+Types of access specifiers:
+- private: access not allowed outside the class/package and allowed inside the class.
+- protected: access not allowed outside the package,, but allowed inside the package
+- public: all access allowed, across the packages
+
+
