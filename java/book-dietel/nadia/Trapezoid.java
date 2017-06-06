@@ -6,7 +6,7 @@ public class Trapezoid extends Quadrilateral {
         super(point);
         this.h = h;
     }
-
+    @Override
     public double areaOfShapes(Points point){
         double area = (point.getX()+ point.getY())/h;
         return area;

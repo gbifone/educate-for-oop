@@ -1,7 +1,7 @@
 
 public class Points {
-    protected double x;
-    protected double y;
+    private double x;
+    private double y;
 
     public Points(double x, double y) {
         this.x = x;

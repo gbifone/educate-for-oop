@@ -7,7 +7,7 @@ public class shapesTest {
         Trapezoid T = new Trapezoid(point,6);
         System.out.println("The area of Trapezoid is:" + T.areaOfShapes(point));
         Parallelogram P = new Parallelogram(point);
-        System.out.println("The area of Parallelogram is:" + P.areaOfShapes(point));
+        System.out.println("The area of Parallelogram is:" +P.areaOfShapes(point));
         Rectangle R = new Rectangle(point);
         System.out.println("The area of Rectangle is:" + R.areaOfShapes(point));
         Square S = new Square(point);
