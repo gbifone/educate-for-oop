@@ -1,12 +1,17 @@
-public class Square extends Quadrilateral{
-    public Square(Points point) {
-        super(point);
+
+public class Square extends TwoDimensionalShape {
+
+    public Square(double side) {
+        super(side);
     }
 
     @Override
-    public double areaOfShapes(Points point) {
-        double side = point.getX();
-        double area = side * side;
-        return area;
+    public double areaOFShapes() {
+        return getSide() * getSide();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " :Square";
     }
 }
