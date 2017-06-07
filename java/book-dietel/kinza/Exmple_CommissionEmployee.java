@@ -2,8 +2,8 @@ public class CommissionEmployee extends Employee {
     private double grossSales;
     private double commissionRate;
 
-    public CommissionEmployee ( String first, String last, String ssn, Date birthDay, double grossSales, double commissionRate ) {
-        super ( first, last, ssn, birthDay );
+    public CommissionEmployee ( String first, String last, String ssn, double grossSales, double commissionRate ) {
+        super ( first, last, ssn );
         setGrossSales ( grossSales );
         setCommissionRate ( commissionRate );
     }
