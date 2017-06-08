@@ -4,9 +4,10 @@ public class Cube extends ThreeDimensionalShape{
         super(side);
     }
 
+    double side = getSide();
     @Override
     public double areaOFShapes() {
-        return 6 * getSide() * getSide();
+        return 6 * side * side;
     }
 
     @Override

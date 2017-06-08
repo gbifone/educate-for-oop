@@ -2,19 +2,19 @@
 public class ShapeHierachyTest {
     public static void main(String[] args) {
 
-        Circle circle = new Circle(12);
-        Square square = new Square(20);
-        Triangle triangle = new Triangle(6.9, 4.8);
-        Sphere sphere = new Sphere(7.8);
-        Cube cube = new Cube(3.9);
-        Tetrahedron tetrahedron = new Tetrahedron(19.2);
+        Shape circle = new Circle(12);
+        Shape square = new Square(20);
+        Shape triangle = new Triangle(6.9, 4.8);
+        ThreeDimensionalShape sphere = new Sphere(7.8);
+        ThreeDimensionalShape cube = new Cube(3.9);
+        ThreeDimensionalShape tetrahedron = new Tetrahedron(19.2);
 
         System.out.println("Shape processed individually:\n");
         System.out.printf ( "%s\n%s: %,.2f\n\n", circle, "areaof2D", circle.areaOFShapes ( ) );
         System.out.printf ( "%s\n%s: %,.2f\n\n", square, "areaof2D", square.areaOFShapes ( ) );
         System.out.printf ( "%s\n%s: %,.2f\n\n", triangle, "areaof2D", triangle.areaOFShapes ( ) );
         System.out.printf ( "%s\n%s: %,.2f\n%s: %.2f\n\n", sphere, "areaof3D", sphere.areaOFShapes ( ),"volumeOf3D" ,sphere.volumeOf3D());
-        System.out.printf ( "%s\n%s: %,.2f\n%s: %.2f\n\n", cube, "areaof3D", cube.areaOFShapes ( ), "volumeOf3D" ,sphere.volumeOf3D());
+        System.out.printf ( "%s\n%s: %,.2f\n%s: %.2f\n\n", cube, "areaof3D", cube.areaOFShapes ( ), "volumeOf3D" ,cube.volumeOf3D());
         System.out.printf ( "%s\n%s: %,.2f\n%s: %.2f\n\n", tetrahedron, "areaof3D", tetrahedron.areaOFShapes ( ) ,"volumeOf3D" ,sphere.volumeOf3D() );
 
         Shape[] shape = new Shape[6];

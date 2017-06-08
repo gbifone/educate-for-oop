@@ -17,7 +17,8 @@ public class Triangle extends TwoDimensionalShape{
 
     @Override
     public double areaOFShapes() {
-        return (getSide() * getHeight()) / 2;
+        double side = getSide();
+        return (side * getHeight()) / 2;
     }
 
     @Override

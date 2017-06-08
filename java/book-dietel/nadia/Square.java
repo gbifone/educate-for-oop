@@ -7,7 +7,8 @@ public class Square extends TwoDimensionalShape {
 
     @Override
     public double areaOFShapes() {
-        return getSide() * getSide();
+        double side =getSide();
+        return side * side;
     }
 
     @Override

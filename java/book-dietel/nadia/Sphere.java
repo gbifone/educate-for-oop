@@ -4,14 +4,16 @@ public class Sphere extends ThreeDimensionalShape{
         super(side);
     }
 
+    double side = getSide();
     @Override
     public  double areaOFShapes() {
-        return 4 * Math.PI * getSide() *getSide();
+
+        return 4 * Math.PI * side * side;
     }
 
     @Override
     public double volumeOf3D() {
-        return 4/3 * Math.PI *(Math.pow(getSide() ,3));
+        return 4/3 * Math.PI *(Math.pow(side ,3));
     }
 
     @Override

@@ -6,7 +6,8 @@ public class Circle extends TwoDimensionalShape{
 
     @Override
     public double areaOFShapes() {
-        return Math.PI * (getSide() * getSide());
+        double side = getSide();
+        return Math.PI * (side * side);
     }
 
     @Override
