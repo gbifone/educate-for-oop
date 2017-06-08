@@ -976,8 +976,9 @@ POLYMORPHISM IN OOP:
 					- There are two types of Polymorphisms:
 							1- static Polymorphism (via functions)
 							2- dynamic Polymorphism (via Objects / Classes)
-									-> via inheritance
-									-> via interfaces
+									Two approaches for dynamic polymorphism:
+											* via inheritance
+											* via interfaces
 
 
 POLYMORPHISM via INHERITANCE
@@ -1186,4 +1187,231 @@ public class UserDriver {
 	}
 }
 
-									
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+STATIC POLYMORPHISM
+
+Polymorphism via Functions.
+
+Two main characteristics in function-based programming:
+	-	Overloaded functions
+	- Overridden function
+
+Overridden Function
+--------------------
+
+A function that was defined first in the parent class, then re-defined with new
+body inside the derived class.
+
+
+Example:
+ 			toString() function
+
+- toString() function is described in Object class, and then we re-define it inside
+our derived class.
+- we also use @Override annotation o top of the function signature inside derived
+class.
+
+Code Example:
+
+		// add objects to Users array
+		listOfUsers[0] = teacher;
+		listOfUsers[1] = teacher2;
+
+		listOfUsers[2] = clerk;
+		listOfUsers[3] = clerk2;
+
+		listOfUsers[4] = student;
+		listOfUsers[5] = student2;
+
+		System.out.println("\n\nPrinting Users");
+		for (int i=0; i<listOfUsers.length; i++) {
+			System.out.println(listOfUsers[i]);	// call overridden toString()
+		}																			// function of User's derived classes
+
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+
+POLYMORPHISM VIA INTERFACES
+
+INTERFACES:
+
+
+Interface is just a class, that contains only method declarations. No method
+definition can be provided inside an interface.
+
+Example:
+
+	public interface UserManager {
+				public long computeUserSalary(User user);
+				public long computeUserWorkingHours(User user);
+	}
+
+	// implementing the interface (giving definition of methods of interface)
+	public class StudentManager implements UserManager {
+
+			public long computeUserSalary(User user) {
+					if (user.userType == User.STUDENT) {
+							return 0;		// student doesn't have a salary
+					}
+			}
+
+			public long computeUserWorkingHours(User user) {
+					if (user.userType == User.STUDENT) {
+							return 20;	// student has 20 working hours in a week
+					}
+			}
+	}
+
+	public class ChildrenManager extends StudentManager {
+			// data members
+			long salary = 0;
+			.......
+
+			// member functions
+			.......
+			public void getChildSalary() {
+					this.salary = computeUserSalary(this);
+			}
+
+	}
+
+	public class TeacherManager implements UserManager {
+
+			public long computeUserSalary(User user) {
+					if (user.userType == User.TEACHER) {
+							return 25000;
+					}
+			}
+
+			public long computeUserWorkingHours(User user) {
+					if (user.userType == User.TEACHER) {
+							return 40;
+					}
+			}
+	}
+
+
+Why we need interfaces?
+
+Because of a C++ diamond problem.
+
+Diamond Problem
+----------------
+Diamond problem states that, suppose a class CCC inherits from class BBB and
+class AAA. There is a method defined in class AAA and class BBB calculateAge().
+Now if you create an object of class CCC, then call calculateAge() function from
+that object, the compiler will get confused! Which function should
+compiler call?
+			- calculateAge() defined in class AAA ?
+			- calculateAge() defined in class BBB ?
+
+In order to solve the problem of diamond problem in multiple-inheritance, Java
+introduced INTERFACES!
+
+- Java doesn't allow multiple-inheritance. You can't extend one class with
+multiple parent classes.
+- Instead Java provides interfaces that tell you to move the method definition
+inside the derived class.
+- A class can implement multiple interfaces though.
+
+
+Why we need inheritance and interfaces?
+- In a production application, we might need to re-use a lot of code. For re-using
+code, we need to inherit from multiple classes in order to use their code.
+
+Multiple techniques exist for reusing the code:
+	- composition
+	- inheritance
+			- base / derived classes
+			- interfaces
+			- abstract classes
+	- ENUM
+	- static functions
+
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+ABSTRACT CLASSES
+
+The only main difference between an abstract class and an interface is that,
+in abstract you can provide some basic common functionality. This common functionality
+will be available/shared to all of the derived classes from that abstract class.
+
+- method definitions for some functions can be provided.
+- these definitions will act as a common logic for all derived classes.
+
+public abstract class UserManager {
+			public String getOrganizationName() {
+					return "DEXDEVS SOFTWARE HOUSE";
+			}
+
+			abstract public long computeUserSalary(User user);
+			abstract public long computeUserWorkingHours(User user);
+}
+
+public class Child1 extends UserManager {
+		computeUserSalary()		// provide definition
+		computeUserWorkingHours()		// provide definition
+
+		public void printUserOrganization() {
+				System.out.println("User's organization is: " + getOrganizationName());
+		}
+}
+
+//////////////////////////////////////////////////////////////////////
+SOME CONCEPTUAL THEORY REGARDING INTERFACES / ABSTRACT CLASSES / INHERITANCE
+
+What is interface?
+	- An interface separates the implementation detail and defines the structures
+		of classes that will implement interface. It helps to solve diamond problem
+		of multiple inheritance. interface only contains method definitions and its
+		variables are final by default. interface defines a template.
+
+In Java
+	*  Multiple inheritance in interface is possible.
+	*  Multiple inheritance in classes is not possible.
+
+Differentiate between abstract class & interface?
+	1) abstract class can also have method definition.
+	   interface cannot have method definitions at all.
+	2) abstract class can inherit only one abstract class.
+	   interface can inherit multiple interfaces.
+	3) abstract class is used to provide some basic functionality of a base class.
+	   interface can be used when implementation is changing and interface
+		 shouldn’t be affected.
+
+* A java class can extend only 1 class but it can implement multiple interfaces.
+
+Differentiate between class & interface?
+	- class provides idea of Encapsulation.
+	- interface provides idea of Abstraction.
+
+What is concept of Abstraction in OO?
+ 	- separate the implementation detail from an idea.
+Real life Example:
+		- idea: I want to be rich!
+		- implementation:
+									- I rob a bank.
+									- I study hard and become an engineer with good job.
+									- I start a business.
+Code Example:
+		- idea: I want to calculate salary for all users!
+		- implementation:
+									- calculate salary for Teacher with different formula
+									- for Student
+									- for Clerk .....
+
+Can abstract class be used as an interface?
+	- Yes, by only declaring all of its functions, not defining any function.
+
+What is interface inheritance?
+	- Inheritance done via interfaces is called interface-inheritance.
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
