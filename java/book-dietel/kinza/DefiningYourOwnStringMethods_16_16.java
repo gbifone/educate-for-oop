@@ -1,9 +1,26 @@
+import java.util.Scanner;
+
 public class DefiningYourOwnStringMethods_16_16 {
     public static void main ( String[] args ) {
+        Scanner in = new Scanner ( System.in );
 
-        String string = "this is a string";
+        System.out.println ("Enter a string:" );
+        String string = in.next();
+        System.out.println ("Enter character for which you want to search index: " );
+        char character = in.next ().charAt ( 0 );
 
-        System.out.printf( "'i' is located at index %d\n", string.indexOf ( 'i' ));
-        System.out.printf( "Last \"def\" is located at index %d\n", string.lastIndexOf ( "t" ) );
+        int index = search ( character, string );
+
+        System.out.println (character + " found on index "+ index );
+    }
+
+    public static int search( char ch ,String words){
+        int location = -1;
+        for( int i = 0; i < words.length (); i++ ){
+            if ( ch == words.charAt ( i ) ){
+                location = i;
+            }
+        }
+        return location;
     }
 }
