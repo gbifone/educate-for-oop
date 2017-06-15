@@ -9,6 +9,8 @@ public class TokenizingTelephoneNumbers_16_8 {
 
         String[] tokens = s.split( "-" );
 
-        System.out.println ( tokens[0]+ " " + tokens[1] );
+        for(String token: tokens){
+            System.out.println ( token );
+        }
     }
 }

@@ -13,17 +13,17 @@ public class RandomSentences_16_5 {
 
     for ( int i = 0 ; i < 20 ; i++ ) {
         int a = 0 + rand.nextInt (3);
-        int n = 0 + rand.nextInt (3);
-        int v = 0 + rand.nextInt (3);
-        int p = 0 + rand.nextInt (3);
+        int n = 0 + rand.nextInt (4);
+        int v = 0 + rand.nextInt (4);
+        int p = 0 + rand.nextInt (4);
 
             s[ i ] = s[ i ] + article[ a ];
             s[ i ] = s[ i ] + " " + noun[ n ];
             s[ i ] = s[ i ] + " " + verb[ v ];
             s[ i ] = s[ i ] + " " + preposition[ p ];
 
-            a = 0 + rand.nextInt (3);
-            n = 0 + rand.nextInt (3);
+            a = 0 + rand.nextInt (4);
+            n = 0 + rand.nextInt (4);
 
             s[ i ] = s[ i ] + " " + article[ a ];
             s[ i ] = s[ i ] + " " + noun[ n ];
