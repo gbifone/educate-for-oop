@@ -1436,3 +1436,71 @@ DRY RUN
 2: a = 5	b = 3 --> return 5 + 10	// 15
 3: a = 5 	b = 2 --> return 5 + 5	// 10
 4: a = 5	b = 1 --> return 5;
+
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+
+Generic Collections aka GENERICS
+
+Collection: Is an object that holds references to other objects.
+Collections:
+	-	List
+			- ArrayList, Vector, LinkedList
+	- Queue
+	- Set
+
+FIFO = First in, First out
+LIFO = Last in, First out
+
+<> are called generics aka generic specifiers.
+
+ArrayList<User> myList = new ArrayList<User>(50);
+myList.add( new User() );			// stored as an User
+User myUser = myList.get(0);	// returned as an User
+
+
+// ---------------------------- in old java
+ArrayList anotherList = new ArrayList(50);
+anotherList.add( new User() );		// stored as Object
+User user = (User) anotherList.get(0); // always returns an Object - therefore you have to cast it to User
+// ----------------------------
+
+int value = 50;
+float points = 14.56;
+
+Integer aValue = new Integer(5);
+Float aPoint = new Float(10.19);
+
+BOXING
+int -> Integer
+float -> Float
+
+UNBOXING
+Float -> float
+Integer -> int
+
+BOXING = conversion of a primitive type to a corresponding Type-wrapper class.
+UNBOXING = conversion a Type-wrapper class to a corresponding primitive type.
+
+auto-boxing = boxing automatically performed by javac
+auto-unboxing = un-boxing automatically performed by javac
+
+//////////////////////////////////////////////////////////////
+
+AUTOBOXING example in ArrayList
+
+ArrayList<Integer> listOfIntegers = new ArrayList<Integer>();
+listOfIntegers =>> ( new Integer(0), new Integer(1), new Integer(5), new Integer(7), new Integer(8), new Integer(9), new Integer(5) );
+
+int value = listOfIntegers.get(0);		// 0 --data-type--> int, due to auto-unboxing
+Integer someValue = listOfIntegers.get(5);		// 0 --data-type--> Integer
+
+int[] arrOfIntegers = [0, 1, 5, 7, 8, ??, 9, 5, 77, 44];
+
+ArrayList and Vector =>> resizable array-based implementations of List interface
+LinkedList =>> efficient method of insertions in the middle of the List
+
+
+ArrayList is unsynchronized List. (Multiple threads can modify arrayList at the same time)
+Vector is synchronized List. (Multiple threads can't modify at the same time)
