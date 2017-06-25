@@ -1,0 +1,46 @@
+20.3  	a) Collection : interface implemented by generic classes 
+		b) Collections : collections class extend collection interface and defines some common methods used in collections subclasses
+		c) Comparator : comparator interface use to sort collection in natural order or any of given order.
+		d) List : interface implements collection interface use to mainpulate array as list
+		e) load factor : The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased.
+		f) HashMap : it is a class use to manipulate map implements map interface.
+		
+20.4	a) add : append element at the end of Vector.
+		b) set : Replaces the element at the specific position.  
+		c) remove : Removes the element at the specific position.
+		d) removeAllElements : Removes all components from the vector and sets size to zero.
+		e) removeElementAt : Deletes the component at the specific position.
+		f) firstElement : Returns the first component of vector.
+		g) lastElement : Returns the last component of vector.
+		h) contains : Returns true if the vector contains the specific element.
+		i) indexOf : Returns the index of the first occurrence of the specific element.
+		j) size : Returns the number of components in the vector.
+		k) capacity : Returns the current capacity of vector.
+		
+20.5	When inserting additional elements into a Vector object whose current size is less than its capacity is a relatively fast because
+		it use to manipulate defualt capacity and when inserting additional elements into a Vector object whose current size is at capacity isc relatively 
+		slow because if we inserting just 1 element it would increase the capacity by 100% i.e. if vector size is 10 by default and we add 11th 
+		element now its capacity would be 20.  
+
+20.7	a) A Set does not allow inserting duplicate elements. A Map does not allow using duplicate keys, but it allows inserting duplicate values for unique keys.
+		b) collection store only refrences to objects. when we add primitive type to collection autoboxing occure.
+		c) we can print all elements by using enhanced forLoop.
+		
+20.8	a) iterator : implemente collection and walk through all the elements present in collection.
+		b) hasNext : iterator method return true if collection has a value otherwise return false.
+		c) next : iterator method use to move to next value.
+
+20.9	a) put : Associates the specific value with the specific key.
+		b) get : Returns the value to which the specific key is mapped.
+		c) isEmpty : Returns true if the map contains no key-value.
+		d) containsKey : Returns true if the map contains key.
+		e) keySet : Returns a Set view of the keys contained in the map
+
+20.10	a) true
+		b) true
+		c) true
+		
+20.11	a) load : Reads a property list from the input stream.
+		b) store : Writes the property list in the Properties table to the output stream.
+		c) getProperty : Searches for the property with the specific key in the property list.
+		d) list : Prints the property list to the specified output stream.

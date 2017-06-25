@@ -1,0 +1,12 @@
+21.3	This notation declares a generic class named Array with a type parameter T.
+
+21.7	Classes that override the equals method, the program will compare the objects on their contents and for classes that do not override the equals method, 
+		the program will compare the objects on their references.
+		
+21.9	Generic methods can be overloaded by other generic methods that specify the same method name but different parameters. and can also be 
+		overloaded by non-generic methods that have the same method name and number of parameters.
+		
+21.10	If the compiler cannot match the method call or if the matching process results in multiple matches the compiler generates an error.
+
+21.11	this statment creates an arrayList for employee type objects.
+	
