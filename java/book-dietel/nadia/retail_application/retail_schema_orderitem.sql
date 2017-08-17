@@ -16,31 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `watch`
+-- Table structure for table `orderitem`
 --
 
-DROP TABLE IF EXISTS `watch`;
+DROP TABLE IF EXISTS `orderitem`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `watch` (
-  `watchId` varchar(30) NOT NULL,
-  `itemId` int(11) DEFAULT NULL,
-  `companyName` varchar(30) DEFAULT NULL,
-  `model` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`watchId`),
-  KEY `watches_item_itemId_fk` (`itemId`),
-  CONSTRAINT `watches_item_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`ItemId`)
+CREATE TABLE `orderitem` (
+  `OrderItemId` int(11) NOT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  PRIMARY KEY (`OrderItemId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `watch`
+-- Dumping data for table `orderitem`
 --
 
-LOCK TABLES `watch` WRITE;
-/*!40000 ALTER TABLE `watch` DISABLE KEYS */;
-INSERT INTO `watch` VALUES ('120',1,'Rolax','RX7'),('121',1,'Tudor','TD5'),('123',1,'Rolex','RL9');
-/*!40000 ALTER TABLE `watch` ENABLE KEYS */;
+LOCK TABLES `orderitem` WRITE;
+/*!40000 ALTER TABLE `orderitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orderitem` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-09 21:15:35
+-- Dump completed on 2017-08-17 11:38:13

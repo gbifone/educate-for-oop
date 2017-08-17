@@ -16,33 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `registration`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `registration`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `registration` (
-  `registration_id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(30) DEFAULT NULL,
-  `lastName` varchar(30) DEFAULT NULL,
-  `phoneNo` varchar(30) DEFAULT NULL,
-  `address` varchar(50) DEFAULT NULL,
-  `bankName` varchar(20) DEFAULT NULL,
-  `bankAccountNo` varchar(30) DEFAULT NULL,
-  `email` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`registration_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+CREATE TABLE `user` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(30) DEFAULT NULL,
+  `CNIC` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `registration`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `registration` WRITE;
-/*!40000 ALTER TABLE `registration` DISABLE KEYS */;
-INSERT INTO `registration` VALUES (1,'nadia','gull','438659760','snbehcirijrnj9747','HBL','bjbj33567',NULL),(2,'kinza','fatima','750878','bnvhubjfd','UBL','8638e93','kinzafatima@yahoo.com');
-/*!40000 ALTER TABLE `registration` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-09 21:15:34
+-- Dump completed on 2017-08-17 11:38:13

@@ -16,29 +16,25 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `item`
+-- Table structure for table `order`
 --
 
-DROP TABLE IF EXISTS `item`;
+DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `item` (
-  `ItemId` int(11) NOT NULL AUTO_INCREMENT,
-  `ItemName` varchar(25) DEFAULT NULL,
-  `ItemPrice` int(11) DEFAULT NULL,
-  `ItemCode` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ItemId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+CREATE TABLE `order` (
+  `OrderId` int(11) NOT NULL,
+  PRIMARY KEY (`OrderId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `item`
+-- Dumping data for table `order`
 --
 
-LOCK TABLES `item` WRITE;
-/*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (1,'watch',2500,102),(2,'mobilephone',10000,114),(3,'laptop',20000,342),(4,'AC',50000,967);
-/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+LOCK TABLES `order` WRITE;
+/*!40000 ALTER TABLE `order` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-09 21:15:33
+-- Dump completed on 2017-08-17 11:38:13

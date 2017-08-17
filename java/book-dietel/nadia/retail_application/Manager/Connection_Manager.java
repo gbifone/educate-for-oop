@@ -1,13 +1,15 @@
+package Manager;
+
 import java.sql.*;
 
-public final class myConnection  {
+public final class Connection_Manager  {
 
         public Connection connection;
         private Statement statement;
         private PreparedStatement prepst;
-        public static  myConnection db;
+        public static  Connection_Manager db;
 
-        public myConnection() {
+        public Connection_Manager() {
                 String url = "jdbc:mysql://localhost:3306/?autoReconnect=true&useSSL=false";
                 String dbName = "Retail_Application";
                 String driver = "com.mysql.jdbc.Driver";
@@ -21,9 +23,9 @@ public final class myConnection  {
                         sqle.printStackTrace();
                 }
         }
-        public static synchronized myConnection getDbCon() {
+        public static synchronized Connection_Manager getDbCon() {
                 if ( db == null ) {
-                        db = new myConnection();
+                        db = new Connection_Manager();
                 }
                 return db;
 
@@ -33,6 +35,15 @@ public final class myConnection  {
                 ResultSet res = statement.executeQuery(query);
                 return res;
         }
+        public int idCount(String query) throws SQLException {
+                statement = db.connection.createStatement();
+                ResultSet res = statement.executeQuery(query);
+                res.next();
+                int count = res.getInt("rowcount");
+                res.close();
+                return count;
+        }
+
         public int insert(String insertQuery) throws SQLException {
                 statement = db.connection.createStatement();
                 int result = statement.executeUpdate(insertQuery);

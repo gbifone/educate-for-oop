@@ -16,31 +16,26 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `mobilephone`
+-- Table structure for table `item`
 --
 
-DROP TABLE IF EXISTS `mobilephone`;
+DROP TABLE IF EXISTS `item`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `mobilephone` (
-  `phoneId` varchar(12) NOT NULL,
-  `itemId` int(11) DEFAULT NULL,
-  `companyName` varchar(30) DEFAULT NULL,
-  `model` varchar(30) DEFAULT NULL,
-  PRIMARY KEY (`phoneId`),
-  KEY `mobilephone_item_itemId_fk` (`itemId`),
-  CONSTRAINT `mobilephone_item_itemId_fk` FOREIGN KEY (`itemId`) REFERENCES `item` (`ItemId`)
+CREATE TABLE `item` (
+  `ItemId` int(11) NOT NULL,
+  `ItemName` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ItemId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mobilephone`
+-- Dumping data for table `item`
 --
 
-LOCK TABLES `mobilephone` WRITE;
-/*!40000 ALTER TABLE `mobilephone` DISABLE KEYS */;
-INSERT INTO `mobilephone` VALUES ('A3L',2,'sumsung','J5'),('G3S',2,'Qmobile','A10'),('L9T',2,'huawei','P8'),('R7Z',2,'nokia','23W');
-/*!40000 ALTER TABLE `mobilephone` ENABLE KEYS */;
+LOCK TABLES `item` WRITE;
+/*!40000 ALTER TABLE `item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-09 21:15:34
+-- Dump completed on 2017-08-17 11:38:12
