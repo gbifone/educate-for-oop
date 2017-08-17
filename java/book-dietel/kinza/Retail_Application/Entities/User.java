@@ -1,22 +1,22 @@
 package Entities;
 
 public class User {
-    private int user_ID;
+    private int userId;
     private String userName;
-    private String user_CNIC;
+    private String userCnic;
 
-    public User(int user_ID, String userName, String user_CNIC) {
-        this.user_ID = user_ID;
+    public User(int userId, String userName, String userCnic) {
+        this.userId = userId;
         this.userName = userName;
-        this.user_CNIC = user_CNIC;
+        this.userCnic = userCnic;
     }
 
-    public int getUser_ID() {
-        return user_ID;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_ID(int user_ID) {
-        this.user_ID = user_ID;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
@@ -27,20 +27,20 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUser_CNIC() {
-        return user_CNIC;
+    public String getUserCnic() {
+        return userCnic;
     }
 
-    public void setUser_CNIC(String user_CNIC) {
-        this.user_CNIC = user_CNIC;
+    public void setUserCnic(String userCnic) {
+        this.userCnic = userCnic;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "user_ID=" + user_ID +
+                "user_ID=" + userId +
                 ", userName='" + userName + '\'' +
-                ", user_CNIC='" + user_CNIC + '\'' +
+                ", user_CNIC='" + userCnic + '\'' +
                 '}';
     }
 }

@@ -17,7 +17,7 @@ public final class ConnectionManager {
         try {
             Class.forName(driver).newInstance();
             this.conn = (Connection)DriverManager.getConnection(url, userName, password);
-        }catch (Exception sqle) {
+        } catch (Exception sqle) {
             sqle.printStackTrace();
         }
     }
@@ -35,7 +35,7 @@ public final class ConnectionManager {
         return res;
     }
 
-    public int reg_id(String query) throws SQLException{
+    public int regId(String query) throws SQLException{
         statement = db.conn.createStatement();
         ResultSet res = statement.executeQuery(query);
         Integer reg = (Integer) res.getObject("firstName");
@@ -56,12 +56,12 @@ public final class ConnectionManager {
         return result;
 
     }
-    public PreparedStatement insert_Using_PreparedStatement(String insertQuery) throws SQLException {
+    public PreparedStatement insertUsingPreparedStatement(String insertQuery) throws SQLException {
         PreparedStatement preparedStatement = db.conn.prepareStatement(insertQuery);
         return preparedStatement;
     }
 
-    public void execute_PreparedStatement(PreparedStatement ps) throws Exception {
+    public void executePreparedStatement(PreparedStatement ps) throws Exception {
         ps.executeUpdate();
             }
 }

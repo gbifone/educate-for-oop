@@ -1,20 +1,20 @@
 package Entities;
 
 public class Item {
-    private int item_ID;
+    private int itemId;
     private String itemName;
 
-    public Item(int item_ID, String itemName) {
-        this.item_ID = item_ID;
+    public Item(int itemId, String itemName) {
+        this.itemId = itemId;
         this.itemName = itemName;
     }
 
-    public int getItem_ID() {
-        return item_ID;
+    public int getItemId() {
+        return itemId;
     }
 
-    public void setItem_ID(int item_ID) {
-        this.item_ID = item_ID;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     public String getItemName() {
@@ -28,8 +28,8 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "item_ID=" + item_ID +
-                ", itemName='" + itemName + '\'' +
+                "itemId =" + itemId +
+                ", itemName ='" + itemName + '\'' +
                 '}';
     }
 }
