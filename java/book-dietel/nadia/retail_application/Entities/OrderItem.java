@@ -1,20 +1,20 @@
 package Entities;
 
 public class OrderItem {
-    private int orderId;
+    private int Id;
     private int quantity;
 
-    public OrderItem(int orderId, int quantity) {
-        this.orderId = orderId;
+    public OrderItem(int Id, int quantity) {
+        this.Id = Id;
         this.quantity = quantity;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public int getId() {
+        return Id;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setId(int Id) {
+        this.Id = Id;
     }
 
     public int getQuantity() {
@@ -28,7 +28,7 @@ public class OrderItem {
     @Override
     public String toString() {
         return "OrderItem{" +
-                "orderId=" + orderId +
+                "Id=" + Id +
                 ", quantity=" + quantity +
                 '}';
     }
