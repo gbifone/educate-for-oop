@@ -1,0 +1,11 @@
+
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(30) DEFAULT NULL,
+  `CNIC` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
