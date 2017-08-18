@@ -38,9 +38,9 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "user_ID=" + userId +
+                "userId=" + userId +
                 ", userName='" + userName + '\'' +
-                ", user_CNIC='" + userCnic + '\'' +
+                ", userCnic='" + userCnic + '\'' +
                 '}';
     }
 }

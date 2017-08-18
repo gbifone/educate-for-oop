@@ -8,7 +8,7 @@ public final class ConnectionManager {
     private Statement statement;
     private PreparedStatement preparedStatement;
     public static ConnectionManager db;
-    private ConnectionManager () {
+    public ConnectionManager () {
         String url= "jdbc:mysql://localhost:3306?autoReconnect=true&useSSL=false";
         String dbName = "Retail_Application";
         String driver = "com.mysql.jdbc.Driver";
@@ -63,5 +63,10 @@ public final class ConnectionManager {
 
     public void executePreparedStatement(PreparedStatement ps) throws Exception {
         ps.executeUpdate();
-            }
+    }
+
+    public ResultSet executeQuery(PreparedStatement ps ) throws SQLException {
+        ResultSet rs = ps.executeQuery();
+        return rs;
+    }
 }
