@@ -54,9 +54,15 @@ public final class Connection_Manager  {
                 PreparedStatement pst = db.connection.prepareStatement(insertQuery);
                 return pst;
         }
-        public void queryexecution(PreparedStatement pst)throws Exception{
-                pst.executeUpdate();
-                //pst.close();
-                //connection.close();
+
+        public ResultSet queryExecution(PreparedStatement pst)throws Exception{
+                ResultSet rs = pst.executeQuery();
+                return rs;
+        }
+
+        public void closeConnection()throws Exception{
+                connection.close();
+                statement.close();
+
         }
 }
