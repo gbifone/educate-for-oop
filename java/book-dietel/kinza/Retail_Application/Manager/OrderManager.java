@@ -1,16 +1,11 @@
 package Manager;
 
 import java.sql.ResultSet;
-import java.util.Scanner;
 
 public class OrderManager {
-    Scanner input = new Scanner( System. in );
     UserManager userManager = new UserManager();
 
-    public void getOrder() throws Exception {
-        String email;
-        System.out.println("Please enter your email: ");
-        email = input.nextLine();
+    public void getOrder( String email) throws Exception {
         ResultSet rs = userManager.searchUser( email );
 
         if( rs.next() ){
@@ -19,7 +14,7 @@ public class OrderManager {
             }
         } else {
             System.out.println("You have to register yourself first: ");
-            userManager.addUser();
+
         }
     }
 }

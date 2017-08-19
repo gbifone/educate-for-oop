@@ -2,8 +2,10 @@ package Manager;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.util.*;
 
 public class ItemManager {
+    IoManager ioManager = new IoManager();
     ConnectionManager conn = null;
 
     public void addItem(){
@@ -23,22 +25,18 @@ public class ItemManager {
     }
 
     public void getAllItems() throws Exception {
+        List<Map<Integer, String >> list = new LinkedList<>();
         conn = ConnectionManager.getDbCon();
         String query = "SELECT * FROM retail_app_schema.item ";
-
         ResultSet resultSet = conn.query( query );
-
-        ResultSetMetaData metaData = resultSet.getMetaData();
-        int numberOfColumns = metaData.getColumnCount();
-        System.out.println( "List of all items:\n" );
-        for ( int i=1; i <= numberOfColumns; i++ )
-            System.out.printf( "%-8s\t", metaData.getColumnCount());
-        System.out.println();
-
-        while (resultSet.next()) {
-            for ( int i=1; i <= numberOfColumns; i++ )
-                System.out.printf( "%-8s\t", resultSet.getObject(i));
-            System.out.println();
+        while (resultSet.next()){
+            Map<Integer, String  > map = new LinkedHashMap<>();
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            for (int i = 1; i < metaData.getColumnCount(); i++)
+                map.put(resultSet.getInt(i), resultSet.getString("itemName"));
+            list.add(map);
         }
+        ioManager.printAllItems( list );
     }
+
 }

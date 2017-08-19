@@ -1,12 +1,8 @@
 package Manager;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Scanner;
+import java.sql.*;
 
 public class UserManager {
-    Scanner input = new Scanner(System.in);
     ConnectionManager conn = null;
 
     public int userId() throws Exception{
@@ -16,18 +12,11 @@ public class UserManager {
         return id;
     }
 
-    public void addUser() throws  Exception {
-
-        System.out.println("Enter your name: ");
-        String userName = input.nextLine();
-        System.out.println("Enter CNIC: ");
-        String userCnic = input.nextLine();
-        System.out.println("Enter your email address: ");
-        String userEmail = input.nextLine();
-
+    public void addUser(String userName, String userCnic, String userEmail ) throws  Exception {
+        int userId = userId();
+        userId++;
         conn = ConnectionManager.getDbCon();
 
-        int userId = userId();
         String insertUser = "INSERT INTO retail_app_schema.user VALUES ( ?, ?, ?, ? )";
         PreparedStatement ps = conn.insertUsingPreparedStatement(insertUser);
         ps.setInt   (1, userId);
