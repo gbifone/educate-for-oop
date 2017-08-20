@@ -1,20 +1,24 @@
 package Manager;
 
-import java.sql.ResultSet;
+import java.sql.*;
+import java.util.*;
 
 public class OrderManager {
-    UserManager userManager = new UserManager();
+    ConnectionManager conn = null;
 
-    public void getOrder( String email) throws Exception {
-        ResultSet rs = userManager.searchUser( email );
-
-        if( rs.next() ){
-            if ( rs.getString("email") != null && rs.getString("email").equals(email)){
-                System.out.println("Welcome User! \n Please select item you want to purchase: ");
+    public List<String> getOrder(List<Integer> arrayOfIds ) throws Exception {
+        List<String> listOfItems = new ArrayList<>();
+        Iterator<Integer> integerIterator = arrayOfIds.iterator();
+        while (integerIterator.hasNext()) {
+            String query = "SELECT itemName FROM retail_app_schema.item WHERE item_ID = ? ";
+            conn = ConnectionManager.getDbCon();
+            PreparedStatement ps = conn.insertUsingPreparedStatement(query);
+            ps.setInt(1, integerIterator.next());
+            ResultSet resultSet = conn.executeQuery(ps);
+            if(resultSet.next()){
+                listOfItems.add(resultSet.getString("itemName"));
             }
-        } else {
-            System.out.println("You have to register yourself first: ");
-
         }
+        return listOfItems;
     }
 }

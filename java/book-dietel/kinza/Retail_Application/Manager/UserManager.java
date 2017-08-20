@@ -1,28 +1,29 @@
 package Manager;
 
+import Entities.User;
 import java.sql.*;
 
 public class UserManager {
     ConnectionManager conn = null;
 
-    public int userId() throws Exception{
+    public int getIdByDb() throws Exception{
         conn = ConnectionManager.getDbCon();
         String query = "SELECT COUNT(*) AS rowcount FROM retail_app_schema.user";
         int id = conn.idCount(query);
         return id;
     }
 
-    public void addUser(String userName, String userCnic, String userEmail ) throws  Exception {
-        int userId = userId();
+    public void addUser(User user ) throws  Exception {
+        int userId = getIdByDb();
         userId++;
         conn = ConnectionManager.getDbCon();
 
         String insertUser = "INSERT INTO retail_app_schema.user VALUES ( ?, ?, ?, ? )";
         PreparedStatement ps = conn.insertUsingPreparedStatement(insertUser);
         ps.setInt   (1, userId);
-        ps.setString(2, userName);
-        ps.setString(3, userCnic);
-        ps.setString(4, userEmail);
+        ps.setString(2, user.getUserName());
+        ps.setString(3, user.getUserCnic());
+        ps.setString(4, user.getUserEmail());
 
         conn.executePreparedStatement( ps );
     }
@@ -31,7 +32,7 @@ public class UserManager {
 
     }
 
-    public ResultSet searchUser(String email) throws Exception {
+    public ResultSet searchUserByEmail(String email) throws Exception {
         String query = "SELECT retail_app_schema.user.email FROM retail_app_schema.user WHERE email = ? ";
         conn = ConnectionManager.getDbCon();
         PreparedStatement ps = conn.insertUsingPreparedStatement(query);
@@ -42,5 +43,18 @@ public class UserManager {
 
     public void deleteUser(){
 
+    }
+
+    public boolean emailVerification(String  email ) throws Exception{
+        boolean b = true;
+        ResultSet rs = searchUserByEmail( email );
+        if( rs.next() ){
+            if ( rs.getString("email") != null && rs.getString("email").equals(email)){
+                 b = true;
+            }
+        } else {
+             b = false;
+        }
+        return b;
     }
 }

@@ -1,10 +1,12 @@
 package Manager;
 
+import Entities.Item;
+import Entities.User;
+
 import java.util.*;
 
 public class IoManager {
     Scanner input = new Scanner(System.in);
-    UserManager userManager = new UserManager();
 
     public void menuMessage(){
         System.out.println("Press 1 to registration: \n" +
@@ -12,14 +14,25 @@ public class IoManager {
                             "Press 3 to purchase items:");
     }
 
-    public void getUserInfo() throws Exception {
+    public User getUserDetailFormCLI() throws Exception {
+        User user = new User();
         System.out.println("Enter your name: ");
-        String userName = input.nextLine();
+        user.setUserName( input.nextLine() );
         System.out.println("Enter CNIC: ");
-        String userCnic = input.nextLine();
+        user.setUserCnic( input.nextLine() );
         System.out.println("Enter your email address: ");
-        String userEmail = input.nextLine();
-        userManager.addUser(userName, userCnic, userEmail);
+        user.setUserEmail( input.nextLine() );
+
+        return user;
+    }
+
+    public void printAllItems( List<Item> list ){
+        System.out.println("\n**List of Items**\n ");
+        Iterator<Item> iterator = list.iterator();
+
+        while (iterator.hasNext()){
+            System.out.printf("%s\n", iterator.next());
+        }
     }
 
     public String getEmailByUser() {
@@ -28,12 +41,32 @@ public class IoManager {
          return email;
     }
 
-    public void printAllItems( List<Map <Integer,String >> list ){
-        System.out.println("List of Items\n ");
-        Iterator itrator = list.iterator();
+    public void welcomeMessage(){
+        System.out.println("Welcome User! \n Please select item you want to purchase: ");
+    }
 
-        while (itrator.hasNext()){
-            System.out.printf("%s\n", itrator.next());
+    public void registerMessage(){
+        System.out.println("You have to register yourself first: ");
+    }
+
+    public List<Integer> getOrderByUser(){
+        char ch = 'c';
+        List<Integer> arrayList = new ArrayList<>();
+        do {
+            System.out.println("Enter Items to purchase: ");
+            int purchasedItem = input.nextInt();
+            arrayList.add(purchasedItem);
+            System.out.println("Press \'q\' to Quit or \'c\' to Continue: ");
+            ch = input.next().charAt(0);
+        } while ( ch == 'c' );
+        return  arrayList;
+    }
+
+    public void printOrderedItems( List<String> listOfPurchasedItems ){
+        System.out.println("\nYou have ordered following items: \n");
+        Iterator<String> iterator = listOfPurchasedItems.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
         }
     }
 }
