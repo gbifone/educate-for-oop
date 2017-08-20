@@ -1,5 +1,7 @@
 package Manager;
 
+import Entities.Item;
+
 import java.sql.ResultSet;
 import java.util.*;
 
@@ -23,7 +25,7 @@ public class ItemManager {
 
     }
 
-    public void getAllItems() throws Exception {
+    /*public void getAllItems() throws Exception {
         ioManager.itemHeading();
         List<String> list = new LinkedList<String>();
         List<Integer> intList = new LinkedList<Integer>();
@@ -36,5 +38,16 @@ public class ItemManager {
         }
         ioManager.listOfItem(list, intList);
 
+    }*/
+    public List<Item> getAllItems() throws Exception {
+        List<Item> list = new LinkedList<Item>();
+        con = ConnectionManager.getDbCon();
+        String query = "SELECT * FROM retail_schema.item";
+        ResultSet rs = con.query(query);
+        while (rs.next()) {
+            list.add( new Item(rs.getInt("ItemId"),rs.getString("ItemName")));
+        }
+        return list;
     }
+
 }

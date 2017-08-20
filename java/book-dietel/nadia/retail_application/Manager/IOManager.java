@@ -1,9 +1,9 @@
 package Manager;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import Entities.Item;
+import Entities.User;
+
+import java.util.*;
 
 public class IOManager {
     Scanner in = new Scanner(System.in);
@@ -13,14 +13,18 @@ public class IOManager {
         System.out.println("Press 1: To Registration \nPress 2: To View Items \nPress 3: To purchase Items ");
     }
 
-    public void getUserData() throws Exception {
+    public List<String> getUserDetailFromCLI() throws Exception {
+        List<String> list = new ArrayList<String>();
         System.out.println("Enter your Name:");
         String name = in.nextLine();
         System.out.println("Enter your CNIC:");
         String CNIC = in.next();
         System.out.println("Enter your Email:");
         String email = in.next();
-        userManager.addUser(name, CNIC, email);
+        list.add(name);
+        list.add(CNIC);
+        list.add(email);
+        return list;
     }
 
     public String getUserEmail() {
@@ -42,13 +46,29 @@ public class IOManager {
         System.out.println("  List of All Items ");
         System.out.println("*********************\n");
     }
-
-    public void listOfItem(List<String> list, List<Integer> intList) {
-        Iterator iterator = list.iterator();
-        Iterator iterator1 = intList.iterator();
+    public void printItem(List<Item>  list){
+        Iterator<Item> iterator = list.iterator();
         while (iterator.hasNext()) {
-            System.out.printf("%s\t%s\n", iterator1.next(), iterator.next());
+            System.out.println(iterator.next());
         }
+    }
+    public List<Integer> getOrderByUser(){
+        int i = 0;
+        List<Integer> integers = new ArrayList<>();
+       do {
+            System.out.println("Enter Item Id");
+            int id = in.nextInt();
+            integers.add(id);
+           System.out.println("Enter -1 For exit or 0 F0r continue");
+           i = in.nextInt();
+        } while (i == 0);
 
+        return integers;
+    }
+    public void printOrderedItem(List<String>  list){
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
 }
