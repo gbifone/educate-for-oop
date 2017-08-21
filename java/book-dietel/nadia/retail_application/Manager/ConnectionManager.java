@@ -28,7 +28,6 @@ public final class ConnectionManager {
             db = new ConnectionManager();
         }
         return db;
-
     }
 
     public ResultSet query(String query) throws SQLException {
@@ -46,32 +45,29 @@ public final class ConnectionManager {
         return count;
     }
 
+    public int insert(String insertQuery) throws SQLException {
+        statement = db.connection.createStatement();
+        int result = statement.executeUpdate(insertQuery);
+        return result;
+    }
+
+    public PreparedStatement insertUsingPrepStatement(String insertQuery) throws SQLException {
+        PreparedStatement pst = db.connection.prepareStatement(insertQuery);
+        return pst;
+    }
+
     public ResultSet queryExecution(PreparedStatement pst) throws Exception {
         ResultSet rs = pst.executeQuery();
         return rs;
     }
 
-    public int insert(String insertQuery) throws SQLException {
-        statement = db.connection.createStatement();
-        int result = statement.executeUpdate(insertQuery);
-        return result;
-
-    }
-
-    public PreparedStatement insertUsingPrepStatment(String insertQuery) throws SQLException {
-        PreparedStatement pst = db.connection.prepareStatement(insertQuery);
-        return pst;
-    }
-
     public int queryExecutionUsingPrepStat(PreparedStatement pst) throws Exception {
         return pst.executeUpdate();
-
     }
-
 
     public void closeConnection() throws Exception {
-        connection.close();
         statement.close();
-
+        connection.close();
     }
+
 }

@@ -1,28 +1,26 @@
 package Manager;
 
 import Entities.Item;
-import Entities.User;
 
 import java.util.*;
 
 public class IOManager {
     Scanner in = new Scanner(System.in);
-    UserManager userManager = new UserManager();
 
-    public void appMenu() {
+    public void printAppMenu() {
         System.out.println("Press 1: To Registration \nPress 2: To View Items \nPress 3: To purchase Items ");
     }
 
     public List<String> getUserDetailFromCLI() throws Exception {
         List<String> list = new ArrayList<String>();
         System.out.println("Enter your Name:");
-        String name = in.nextLine();
+        String name = in.next();
         System.out.println("Enter your CNIC:");
-        String CNIC = in.next();
+        String cnic = in.next();
         System.out.println("Enter your Email:");
         String email = in.next();
         list.add(name);
-        list.add(CNIC);
+        list.add(cnic);
         list.add(email);
         return list;
     }
@@ -33,39 +31,39 @@ public class IOManager {
         return email;
     }
 
-    public void wellComeMessage() {
-        System.out.println("WelCome\nNow You can purchase items");
+    public void printWelComeMsg() {
+        System.out.println("WelCome\nNow you can purchase items!");
     }
 
-    public void registerFirst() {
-        System.out.println("Sorry! Register yourself First\n");
+    public void printRegisterFirstMsg() {
+        System.out.println("Sorry!You are not registered in our system. Please register yourself first\n");
     }
 
-    public void itemHeading() {
-        System.out.println("*********************");
-        System.out.println("  List of All Items ");
-        System.out.println("*********************\n");
+    public void printItemHeadingMsg() {
+        System.out.println("*********************\n List of All Items\n*********************");
     }
-    public void printItem(List<Item>  list){
+
+    public void printItems(List<Item> list) {
         Iterator<Item> iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
     }
-    public List<Integer> getOrderByUser(){
-        int i = 0;
+
+    public List<Integer> getOrderByUser() {
         List<Integer> integers = new ArrayList<>();
-       do {
+        int i = 0;
+        do {
             System.out.println("Enter Item Id");
             int id = in.nextInt();
             integers.add(id);
-           System.out.println("Enter -1 For exit or 0 F0r continue");
-           i = in.nextInt();
+            System.out.println("Please Enter -1 For exit or 0 For continue");
+            i = in.nextInt();
         } while (i == 0);
-
         return integers;
     }
-    public void printOrderedItem(List<String>  list){
+
+    public void printOrderedItem(List<String> list) {
         Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());

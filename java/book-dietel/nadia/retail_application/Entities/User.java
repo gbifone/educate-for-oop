@@ -3,16 +3,16 @@ package Entities;
 public class User {
     private int id;
     private String name;
-    private String CNIC;
+    private String cnic;
     private String email;
 
     public User() {
     }
 
-    public User(int id, String name, String CNIC ,String email) {
+    public User(int id, String name, String cnic ,String email) {
         this.id = id;
         this.name = name;
-        this.CNIC = CNIC;
+        this.cnic = cnic;
         this.email = email;
     }
 
@@ -33,11 +33,11 @@ public class User {
     }
 
     public String getCNIC() {
-        return CNIC;
+        return cnic;
     }
 
     public void setCNIC(String CNIC) {
-        this.CNIC = CNIC;
+        this.cnic = CNIC;
     }
 
     public String getEmail() {
@@ -53,7 +53,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", CNIC='" + CNIC + '\'' +
+                ", CNIC='" + cnic + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }
