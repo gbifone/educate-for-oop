@@ -4,7 +4,7 @@ public class Item {
     private int itemId;
     private String itemName;
 
-    public Item(){
+    public Item() {
 
     }
 
@@ -31,6 +31,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return itemId + " = " + itemName ;
+        return itemId + " = " + itemName;
     }
 }

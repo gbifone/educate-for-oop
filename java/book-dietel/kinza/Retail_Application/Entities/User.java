@@ -6,7 +6,7 @@ public class User {
     private String userCnic;
     private String userEmail;
 
-    public User(){
+    public User() {
 
     }
 
@@ -41,9 +41,13 @@ public class User {
         this.userCnic = userCnic;
     }
 
-    public String getUserEmail() { return userEmail; }
+    public String getUserEmail() {
+        return userEmail;
+    }
 
-    public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 
     @Override
     public String toString() {

@@ -6,7 +6,7 @@ import java.util.*;
 public class OrderManager {
     ConnectionManager conn = null;
 
-    public List<String> getOrder(List<Integer> arrayOfIds ) throws Exception {
+    public List<String> getOrder(List<Integer> arrayOfIds) throws Exception {
         List<String> listOfItems = new ArrayList<>();
         Iterator<Integer> integerIterator = arrayOfIds.iterator();
         while (integerIterator.hasNext()) {
@@ -15,7 +15,7 @@ public class OrderManager {
             PreparedStatement ps = conn.insertUsingPreparedStatement(query);
             ps.setInt(1, integerIterator.next());
             ResultSet resultSet = conn.executeQuery(ps);
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 listOfItems.add(resultSet.getString("itemName"));
             }
         }
