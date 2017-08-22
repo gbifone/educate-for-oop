@@ -14,7 +14,7 @@ public class OrderManager {
             conn = ConnectionManager.getDbCon();
             PreparedStatement ps = conn.insertUsingPreparedStatement(query);
             ps.setInt(1, integerIterator.next());
-            ResultSet resultSet = conn.executeQuery(ps);
+            ResultSet resultSet = conn.executeQueryUsingPrepStatement( ps );
             if (resultSet.next()) {
                 listOfItems.add(resultSet.getString("itemName"));
             }

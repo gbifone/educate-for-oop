@@ -35,7 +35,7 @@ public class IoManager {
         }
     }
 
-    public String getEmailByUser() {
+    public String getEmailFromUser() {
         System.out.println("Enter your Email");
         String email = input.next();
         return email;

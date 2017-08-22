@@ -39,7 +39,7 @@ public class UserManager {
         conn = ConnectionManager.getDbCon();
         PreparedStatement ps = conn.insertUsingPreparedStatement(query);
         ps.setString(1, email);
-        ResultSet rs = conn.executeQuery(ps);
+        ResultSet rs = conn.executeQueryUsingPrepStatement( ps );
         if (rs.next()) {
             if (rs.getString("email") != null && rs.getString("email").equals(email)) {
                 bool = true;

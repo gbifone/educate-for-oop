@@ -25,7 +25,7 @@ public class ApplicationManager {
                 ioManager.printAllItems(li);
                 break;
             case 3:
-                String email = ioManager.getEmailByUser();
+                String email = ioManager.getEmailFromUser();
                 boolean bool = userManager.searchUserByEmail(email);
                 if (bool) {
                     ioManager.printWelcomeMsg();
