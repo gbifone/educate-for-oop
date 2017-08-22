@@ -1,6 +1,4 @@
-
 -- Table structure for table `orderitem`
---
 
 DROP TABLE IF EXISTS `orderitem`;
 CREATE TABLE `orderitem` (

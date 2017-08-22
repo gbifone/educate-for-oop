@@ -27,9 +27,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "itemId=" + itemId +
-                ", itemName='" + itemName + '\'' +
-                '}';
+        return  itemId + " \t " + itemName  ;
     }
 }
