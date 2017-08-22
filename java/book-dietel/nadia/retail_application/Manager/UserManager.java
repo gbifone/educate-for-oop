@@ -26,9 +26,9 @@ public class UserManager {
         ps.setString(2, strings.get(0));
         ps.setString(3, strings.get(1));
         ps.setString(4, strings.get(2));
-        int newUser = con.queryExecutionUsingPrepStat(ps);
+        int result = con.queryExecutionUsingPrepStat(ps);
         User user = new User();
-        if (newUser == 1) {
+        if (result == 1) {
             user.setName(strings.get(0));
             user.setCNIC(strings.get(1));
             user.setEmail(strings.get(2));
@@ -51,7 +51,6 @@ public class UserManager {
             if (rs.getString("Email") != null && rs.getString("Email").equals(email)) {
                 bool = true;
             }
-            return bool;
         } else {
             bool = false;
         }

@@ -6,11 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ApplicationManager {
-    public static void main(String[] args) throws Exception {
-
-        ApplicationManager appManager = new ApplicationManager();
-        appManager.manageApplication();
-    }
 
     Scanner in = new Scanner(System.in);
     IOManager ioManager = new IOManager();
@@ -48,6 +43,11 @@ public class ApplicationManager {
                 }
                 break;
         }
+    }
+    public static void main(String[] args) throws Exception {
+
+        ApplicationManager appManager = new ApplicationManager();
+        appManager.manageApplication();
     }
 
 }
