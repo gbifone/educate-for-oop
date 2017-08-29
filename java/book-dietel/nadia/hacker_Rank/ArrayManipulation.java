@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
 public class ArrayManipulation {
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
         int M = scan.nextInt();
 
-        long [] array = new long[N + 1];
+        long[] array = new long[N + 1];
         while (M-- > 0) {
             int a = scan.nextInt();
             int b = scan.nextInt();
             int k = scan.nextInt();
-            array[a-1] += k;
-            array[b]   -= k;
+            array[a - 1] += k;
+            array[b] -= k;
         }
         scan.close();
         long sum = 0;
