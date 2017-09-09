@@ -9,7 +9,7 @@ import java.util.List;
 public class UserManager {
     ConnectionManager con = null;
 
-    public int userId() throws Exception {
+    public int getuserId() throws Exception {
         con = ConnectionManager.getDbCon();
         String query = "Select COUNT(*) AS rowcount FROM retail_schema.user";
         int id = con.idCount(query);
@@ -17,7 +17,7 @@ public class UserManager {
     }
 
     public User addUser(List<String> strings) throws Exception {
-        int userId = userId();
+        int userId = getuserId();
         userId++;
         con = ConnectionManager.getDbCon();
         String query = "INSERT INTO retail_schema.user VALUES (? , ? , ? , ?)";
@@ -40,21 +40,23 @@ public class UserManager {
 
     }
 
-    public boolean getUserByEmail(String email) throws Exception {
-        boolean bool = false;
-        String query = "SELECT Email FROM  retail_schema.user WHERE Email = ? ";
+    public User getUserByEmail(String email) throws Exception {
+        String query = "SELECT * FROM  retail_schema.user WHERE Email = ? ";
         con = ConnectionManager.getDbCon();
         PreparedStatement ps = con.insertUsingPrepStatement(query);
         ps.setString(1, email);
         ResultSet rs = con.queryExecution(ps);
+        User user = new User();
         if (rs.next()) {
             if (rs.getString("Email") != null && rs.getString("Email").equals(email)) {
-                bool = true;
+                user.setId(rs.getInt("Id"));
+                user.setName(rs.getString("Name"));
+                user.setCNIC(rs.getString("CNIC"));
+                user.setEmail(rs.getString("Email"));
+
             }
-        } else {
-            bool = false;
         }
-            return bool;
+        return user;
     }
 
     public void deleteUser() {

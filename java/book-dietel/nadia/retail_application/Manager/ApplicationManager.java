@@ -1,7 +1,9 @@
 package Manager;
 
 import Entities.Item;
+import Entities.User;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +14,7 @@ public class ApplicationManager {
     UserManager userManager = new UserManager();
     ItemManager itemManager = new ItemManager();
     OrderManager orderManager = new OrderManager();
+    User user = new User();
 
     public void manageApplication() throws Exception {
         ioManager.printAppMenu();
@@ -28,15 +31,17 @@ public class ApplicationManager {
                 break;
             case 3:
                 String email = ioManager.getUserEmail();
-                boolean bool = userManager.getUserByEmail(email);
-                if (bool) {
+                User user = userManager.getUserByEmail(email);
+                if (user != null) {
                     ioManager.printWelComeMsg();
                     ioManager.printItemHeadingMsg();
                     List<Item> listOfAllItems = itemManager.getAllItems();
                     ioManager.printItems(listOfAllItems);
-                    List<Integer> listOfIds = ioManager.getOrderByUser();
-                    List<String> listOfPurchasedItems = orderManager.purchaseItem(listOfIds);
-                    ioManager.printOrderedItem(listOfPurchasedItems);
+                    orderManager.createOrder(user.getId());
+                    List<List> listOfOrderedItem = ioManager.getOrderByUser();
+                    orderManager.createPurchase(listOfOrderedItem);
+                    ResultSet rs = orderManager.printOrderDetail();
+                    ioManager.printOrderedItem(rs);
                 } else {
                     ioManager.printRegisterFirstMsg();
                     ioManager.getUserDetailFromCLI();

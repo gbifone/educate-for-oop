@@ -2,7 +2,10 @@ package Manager;
 
 import Entities.Item;
 
+import java.awt.*;
+import java.sql.ResultSet;
 import java.util.*;
+import java.util.List;
 
 public class IOManager {
     Scanner in = new Scanner(System.in);
@@ -44,29 +47,40 @@ public class IOManager {
     }
 
     public void printItems(List<Item> list) {
+        System.out.printf("%-8s %-15s %-10s %-10s\n" , "ItemId"  , "ItemName" , "Price" , "Currency");
         Iterator<Item> iterator = list.iterator();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
     }
 
-    public List<Integer> getOrderByUser() {
-        List<Integer> integers = new ArrayList<>();
+    public List<List> getOrderByUser() {
+        List<Integer> ids = new ArrayList<>();
+        List<Integer> quantaties = new ArrayList<>();
+        List<List> detailOfOrderedItem = new ArrayList<>();
         int i = 0;
         do {
             System.out.println("Enter Item Id");
             int id = in.nextInt();
-            integers.add(id);
+            ids.add(id);
+            System.out.println("Enter Item Qty");
+            int qty = in.nextInt();
+            quantaties.add(qty);
             System.out.println("Please Enter -1 For exit or 0 For continue");
             i = in.nextInt();
         } while (i == 0);
-        return integers;
+        detailOfOrderedItem.add(ids);
+        detailOfOrderedItem.add(quantaties);
+        return detailOfOrderedItem;
     }
 
-    public void printOrderedItem(List<String> list) {
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+    public void printOrderedItem(ResultSet rs) throws Exception{
+        System.out.println("\n\n You Ordered following items \n\n");
+        System.out.printf("%-10s %-15s %-13s %-10s %-15s\n","Order_id" ,"Order_Date" , "Product_Name" , "Quantity" , "Price" );
+        while (rs.next()){
+            System.out.printf("%-10d %-15s %-15s %-8d %-15d\n", rs.getInt("OrderId") ,
+                              rs.getDate("DateTime"), rs.getString("ItemName") ,
+                              rs.getInt("Quantity"), rs.getInt("Price"));
         }
     }
 }

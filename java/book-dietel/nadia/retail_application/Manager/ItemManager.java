@@ -29,7 +29,12 @@ public class ItemManager {
         String query = "SELECT * FROM retail_schema.item";
         ResultSet rs = con.query(query);
         while (rs.next()) {
-            list.add( new Item(rs.getInt("ItemId"),rs.getString("ItemName")));
+            Item item = new Item();
+            item.setItemId(rs.getInt("ItemId"));
+            item.setItemName(rs.getString("ItemName"));
+            item.setPrice(rs.getInt("Price"));
+            item.setCurrency(rs.getString("Currency"));
+            list.add(item);
         }
         return list;
     }
