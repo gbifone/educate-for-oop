@@ -3,6 +3,7 @@ package Manager;
 import Entities.Item;
 import Entities.User;
 
+import java.sql.ResultSet;
 import java.util.*;
 
 public class IoManager {
@@ -10,26 +11,29 @@ public class IoManager {
 
     public void printMenuMsg() {
         System.out.println("Press 1 to registration: \n" +
-                            "Press 2 to view items: \n" +
-                            "Press 3 to purchase items:");
+                "Press 2 to view items: \n" +
+                "Press 3 to purchase items:");
     }
 
     public User getUserDetailFormCLI() throws Exception {
         User user = new User();
         System.out.println("Enter your name: ");
-        user.setUserName(input.nextLine());
+        String name = input.next();
+        user.setUserName( name );
         System.out.println("Enter CNIC: ");
-        user.setUserCnic(input.nextLine());
+        String cnic = input.next();
+        user.setUserCnic(cnic);
         System.out.println("Enter your email address: ");
-        user.setUserEmail(input.nextLine());
+        String email = input.next();
+        user.setUserEmail(email);
 
         return user;
     }
 
     public void printAllItems(List<Item> list) {
         System.out.println("\n**List of Items**\n ");
+        System.out.printf("%-8s %-15s %-10s %-10s\n" , "ItemId" ,  "ItemName",  "Price" , "Currency ");
         Iterator<Item> iterator = list.iterator();
-
         while (iterator.hasNext()) {
             System.out.printf("%s\n", iterator.next());
         }
@@ -49,24 +53,33 @@ public class IoManager {
         System.out.println("You are not registered in our system. You have to register yourself first! ");
     }
 
-    public List<Integer> getOrderByUser() {
+    public List<List> getOrderByUser() {
         char ch = 'q';
-        List<Integer> arrayList = new ArrayList<>();
+        List<Integer> listOfItemId = new ArrayList<>();
+        List<Integer> listOfQuantity = new ArrayList<>();
+        List<List> listOfOrderedItems = new ArrayList<>();
+
         do {
-            System.out.println("Enter Items to purchase: ");
+            System.out.println("Enter Item to purchase: ");
             int purchasedItem = input.nextInt();
-            arrayList.add(purchasedItem);
+            listOfItemId.add(purchasedItem);
+            System.out.println("Enter Quantity of selected item: ");
+            int itemQty = input.nextInt();
+            listOfQuantity.add(itemQty);
             System.out.println("Press \'q\' to Quit or \'c\' to Continue purchasing items: ");
             ch = input.next().charAt(0);
         } while (ch != 'q');
-        return arrayList;
+        listOfOrderedItems.add(listOfItemId);
+        listOfOrderedItems.add(listOfQuantity);
+        return listOfOrderedItems;
     }
 
-    public void printOrderedItems(List<String> listOfPurchasedItems) {
+    public void printOrderedItems(ResultSet rs) throws Exception {
         System.out.println("\nYou have ordered following items: \n");
-        Iterator<String> iterator = listOfPurchasedItems.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
+        System.out.printf("%-10s %-15s %-10s %-10s %-15s\n", "Order_Id", "Order_Date", "Item_Name" , "Quantity", "Price");
+        while (rs.next()){
+            System.out.printf("%-10s %-15s %-10s %-10s %-15s\n", rs.getInt("order_ID"), rs.getDate("dateTime"),
+                    rs.getString("itemName"), rs.getInt("quantity"), rs.getInt("price"));
         }
     }
 }

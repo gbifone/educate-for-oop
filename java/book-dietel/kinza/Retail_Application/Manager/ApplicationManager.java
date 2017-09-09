@@ -2,6 +2,7 @@ package Manager;
 
 import Entities.*;
 
+import java.sql.ResultSet;
 import java.util.*;
 
 public class ApplicationManager {
@@ -26,14 +27,17 @@ public class ApplicationManager {
                 break;
             case 3:
                 String email = ioManager.getEmailFromUser();
-                boolean bool = userManager.searchUserByEmail(email);
-                if (bool) {
+                User userObj = userManager.getUserByEmail( email );
+                if ( userObj != null ) {
                     ioManager.printWelcomeMsg();
                     List<Item> listOfAllItems = itemManager.getAllItems();
                     ioManager.printAllItems(listOfAllItems);
-                    List<Integer> arrayOfIds = ioManager.getOrderByUser();
-                    List<String> listOfPurchasedItems = orderManager.getOrder(arrayOfIds);
-                    ioManager.printOrderedItems(listOfPurchasedItems);
+                    orderManager.createOrder( userObj.getUserId() );
+                    List<List> listOfOrderedItems = ioManager.getOrderByUser();
+                    orderManager.createPurchase( listOfOrderedItems );
+                    ResultSet rs = orderManager.printOrderDetail();
+                    ioManager.printOrderedItems(rs);
+
                 } else {
                     ioManager.printRegisterMsg();
                     User userInput = ioManager.getUserDetailFormCLI();

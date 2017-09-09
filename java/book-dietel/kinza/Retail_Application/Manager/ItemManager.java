@@ -32,13 +32,12 @@ public class ItemManager {
         ResultSet resultSet = conn.query(query);
         while (resultSet.next()) {
             Item item = new Item();
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            for (int i = 1; i < metaData.getColumnCount(); i++) {
-                item.setItemId(resultSet.getInt(i));
+                item.setItemId(resultSet.getInt("item_ID"));
                 item.setItemName(resultSet.getString("itemName"));
+                item.setPrice(resultSet.getInt("price"));
+                item.setCurrency(resultSet.getString("currency"));
                 listOfItems.add(item);
             }
-        }
         return listOfItems;
     }
 

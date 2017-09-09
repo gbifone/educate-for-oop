@@ -28,14 +28,14 @@ public final class ConnectionManager {
         return db;
     }
 
-    // use to select data from database
+    // used to select data from database
     public ResultSet query( String query ) throws SQLException {
         statement = db.conn.createStatement();
         ResultSet res = statement.executeQuery(query);
         return res;
     }
 
-    // use to count total number of rows in database
+    // used to count total number of rows in database
     public int idCount( String query ) throws SQLException {
         statement = db.conn.createStatement();
         ResultSet res = statement.executeQuery(query);
@@ -44,7 +44,7 @@ public final class ConnectionManager {
         return count;
     }
 
-    // use to manualy insert data in database
+    // used to manually insert data in database
     public int insert( String insertQuery ) throws SQLException {
         statement = db.conn.createStatement();
         int result = statement.executeUpdate(insertQuery);
@@ -52,18 +52,23 @@ public final class ConnectionManager {
 
     }
 
-    // use to create object of prepared statement
+    // used to create object of prepared statement
     public PreparedStatement insertUsingPreparedStatement( String insertQuery ) throws SQLException {
         PreparedStatement preparedStatement = db.conn.prepareStatement(insertQuery);
         return preparedStatement;
     }
 
-    // use pst object to insert data in database
+    // used pst object to insert user data in database
     public void executePreparedStatement( PreparedStatement ps ) throws Exception {
         ps.executeUpdate();
     }
 
-    // use pst object to select data from database
+    // used pst object to insert data in database
+    public int executePrepStatement( PreparedStatement ps ) throws Exception {
+        return ps.executeUpdate();
+    }
+
+    // used pst object to select data from database
     public ResultSet executeQueryUsingPrepStatement( PreparedStatement ps ) throws SQLException {
         ResultSet rs = ps.executeQuery();
         return rs;
