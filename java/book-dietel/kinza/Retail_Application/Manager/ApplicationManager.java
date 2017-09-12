@@ -11,6 +11,8 @@ public class ApplicationManager {
     ItemManager itemManager = new ItemManager();
     UserManager userManager = new UserManager();
     OrderManager orderManager = new OrderManager();
+    private String email = "";
+    private User user;
 
     public void manageApplication() throws Exception {
         ioManager.printMenuMsg();
@@ -18,7 +20,7 @@ public class ApplicationManager {
 
         switch (choice) {
             case 1:
-                User user = ioManager.getUserDetailFormCLI();
+                user = ioManager.getUserDetailFormCLI();
                 userManager.addUser(user);
                 break;
             case 2:
@@ -26,22 +28,34 @@ public class ApplicationManager {
                 ioManager.printAllItems(li);
                 break;
             case 3:
-                String email = ioManager.getEmailFromUser();
-                User userObj = userManager.getUserByEmail( email );
-                if ( userObj != null ) {
+                email = ioManager.getEmailFromUser();
+                user = userManager.getUserByEmail( email );
+                if ( user != null ) {
                     ioManager.printWelcomeMsg();
                     List<Item> listOfAllItems = itemManager.getAllItems();
                     ioManager.printAllItems(listOfAllItems);
-                    orderManager.createOrder( userObj.getUserId() );
-                    List<List> listOfOrderedItems = ioManager.getOrderByUser();
-                    orderManager.createPurchase( listOfOrderedItems );
-                    ResultSet rs = orderManager.printOrderDetail();
+                    orderManager.createOrder( user.getUserId( ) );
+                    List<List> listOfOrderedItems = ioManager.getOrderByUser( );
+                    int orderId = orderManager.createPurchase( listOfOrderedItems );
+                    ResultSet rs = orderManager.getOrderDetail( orderId );
                     ioManager.printOrderedItems(rs);
-
                 } else {
                     ioManager.printRegisterMsg();
-                    User userInput = ioManager.getUserDetailFormCLI();
-                    userManager.addUser(userInput);
+                    user = ioManager.getUserDetailFormCLI();
+                    userManager.addUser(user);
+                }
+                break;
+            case 4:
+                email = ioManager.getEmailFromUser();
+                user = userManager.getUserByEmail( email );
+                if ( user != null ) {
+                    int orderId = orderManager.getOrderIdByUserId( user.getUserId() );
+                    ResultSet rs = orderManager.getOrderDetail( orderId );
+                    ioManager.printOrderedItems(rs);
+                } else {
+                    ioManager.printRegisterMsg();
+                    user = ioManager.getUserDetailFormCLI();
+                    userManager.addUser(user);
                 }
                 break;
         }

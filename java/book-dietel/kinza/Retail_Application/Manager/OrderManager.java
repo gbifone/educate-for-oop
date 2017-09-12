@@ -42,7 +42,7 @@ public class OrderManager {
         return order;
     }
 
-    public void createPurchase(List<List> listOfOrderedItems) throws Exception {
+    public int createPurchase(List<List> listOfOrderedItems) throws Exception {
         int orderId = getOrderId();
         int orderItemId = getOrderItemId();
         conn = ConnectionManager.getDbCon();
@@ -64,10 +64,21 @@ public class OrderManager {
             ps.setInt(4, iteratorOfQuantity.next());
             conn.executePreparedStatement(ps);
         }
+        return orderId;
     }
 
-    public ResultSet printOrderDetail() throws Exception{
-        int orderId = getOrderId();
+    public int getOrderIdByUserId(int userId) throws Exception {
+        conn = ConnectionManager.getDbCon();
+        String insertUser = "SELECT order_ID FROM retail_app_schema.order WHERE user_ID = ?";
+        PreparedStatement ps = conn.insertUsingPreparedStatement(insertUser);
+        ps.setInt(1,userId);
+        ResultSet rs = conn.executeQueryUsingPrepStatement(ps);
+        rs.next();
+        int orderId = rs.getInt("order_ID");
+        return orderId;
+    }
+
+    public ResultSet getOrderDetail(int orderId ) throws Exception{
         conn = ConnectionManager.getDbCon();
         String query = "SELECT od.order_ID , od.dateTime, i.itemName, odi.quantity, i.price FROM ((retail_app_schema.order od INNER JOIN retail_app_schema.order_item odi ON od.order_ID = odi.order_ID) INNER  JOIN retail_app_schema.item i ON odi.Item_ID = i.item_ID) WHERE od.order_ID = ? ";
         PreparedStatement ps = conn.insertUsingPreparedStatement(query);

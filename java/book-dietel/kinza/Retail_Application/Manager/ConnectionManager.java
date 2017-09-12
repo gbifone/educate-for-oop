@@ -22,8 +22,12 @@ public final class ConnectionManager {
     }
 
     public static synchronized ConnectionManager getDbCon() {
-        if (db == null) {
-            db = new ConnectionManager();
+        try {
+            if (db == null) {
+                db = new ConnectionManager();
+            }
+        } catch (Exception e ) {
+            System.err.println(" Database connection failed !! ");
         }
         return db;
     }
@@ -52,7 +56,7 @@ public final class ConnectionManager {
 
     }
 
-    // used to create object of prepared statement
+    // used to create object of prepared statement to insert data
     public PreparedStatement insertUsingPreparedStatement( String insertQuery ) throws SQLException {
         PreparedStatement preparedStatement = db.conn.prepareStatement(insertQuery);
         return preparedStatement;
