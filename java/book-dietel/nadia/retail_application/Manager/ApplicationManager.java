@@ -15,6 +15,7 @@ public class ApplicationManager {
     ItemManager itemManager = new ItemManager();
     OrderManager orderManager = new OrderManager();
     User user = new User();
+    private String email = "";
 
     public void manageApplication() throws Exception {
         ioManager.printAppMenu();
@@ -30,8 +31,8 @@ public class ApplicationManager {
                 ioManager.printItems(list);
                 break;
             case 3:
-                String email = ioManager.getUserEmail();
-                User user = userManager.getUserByEmail(email);
+                 email = ioManager.getUserEmail();
+                 user = userManager.getUserByEmail(email);
                 if (user != null) {
                     ioManager.printWelComeMsg();
                     ioManager.printItemHeadingMsg();
@@ -39,14 +40,24 @@ public class ApplicationManager {
                     ioManager.printItems(listOfAllItems);
                     orderManager.createOrder(user.getId());
                     List<List> listOfOrderedItem = ioManager.getOrderByUser();
-                    orderManager.createPurchase(listOfOrderedItem);
-                    ResultSet rs = orderManager.printOrderDetail();
+                    int orderId = orderManager.createPurchase(listOfOrderedItem);
+                    ResultSet rs = orderManager.getOrderDetail(orderId);
                     ioManager.printOrderedItem(rs);
                 } else {
                     ioManager.printRegisterFirstMsg();
                     ioManager.getUserDetailFromCLI();
                 }
                 break;
+            case 4:
+                email = ioManager.getUserEmail();
+                user = userManager.getUserByEmail(email);
+                if (user != null) {
+                    int orderId = orderManager.getOrderIdByUserId(user.getId());
+                    ResultSet rs = orderManager.getOrderDetail(orderId);
+                    ioManager.printOrderedItem(rs);
+                } else {
+                    ioManager.printRegisterFirstMsg();
+                }
         }
     }
     public static void main(String[] args) throws Exception {

@@ -47,7 +47,7 @@ public class OrderManager {
 
     }
 
-    public void createPurchase(List<List> listOfOrderedItem) throws Exception{
+    public int createPurchase(List<List> listOfOrderedItem) throws Exception{
         int orderId = getOrderId();
         int orderItemId = getorderItemId();
         List<Integer> listOfIds = listOfOrderedItem.get(0);
@@ -65,9 +65,21 @@ public class OrderManager {
             ps.setInt(4,iteratorOfQuantities.next());
             con.queryExecutionUsingPrepStat(ps);
         }
+        return orderId;
     }
-    public ResultSet printOrderDetail()throws Exception{
-        int orderId = getOrderId();
+
+    public int getOrderIdByUserId(int uerId) throws Exception{
+        con = ConnectionManager.getDbCon();
+        String query = "SELECT OrderId FROM retail_schema.order WHERE UserId = ? ";
+        PreparedStatement ps = con.insertUsingPrepStatement(query);
+        ps.setInt(1,uerId);
+        ResultSet rs = con.queryExecution(ps);
+        rs.next();
+        int orderId = rs.getInt("OrderId");
+        return orderId;
+    }
+
+    public ResultSet getOrderDetail(int orderId)throws Exception{
         con = ConnectionManager.getDbCon();
         String query = "SELECT od.OrderId,od.DateTime,i.ItemName,odi.Quantity,i.Price FROM ((retail_schema.`order` od " +
                 "INNER JOIN  retail_schema.orderitem odi ON od.OrderId = odi.OrderId)" +

@@ -24,8 +24,12 @@ public final class ConnectionManager {
     }
 
     public static synchronized ConnectionManager getDbCon() {
-        if (db == null) {
-            db = new ConnectionManager();
+        try {
+            if (db == null) {
+                db = new ConnectionManager();
+            }
+        } catch (Exception ex){
+            System.err.println("Database connection Failed");
         }
         return db;
     }
