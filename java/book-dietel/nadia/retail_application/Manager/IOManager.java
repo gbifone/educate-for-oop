@@ -1,20 +1,19 @@
 package Manager;
 
 import Entities.Item;
-
+import org.apache.log4j.Logger;
 import java.sql.ResultSet;
 import java.util.*;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.logging.*;
 
 public class IOManager {
-    private static final Logger logr = Logger.getLogger("IOManager");
+    private final Logger log = Logger.getLogger(this.getClass());
     Scanner in = new Scanner(System.in);
 
     public void printAppMenu() {
-        logr.info("Displaying Menu");
+        log.info("Displaying Menu");
         System.out.println("Press 1: To Registration \n" +
                            "Press 2: To View Items \n" +
                            "Press 3: To purchase Items\n" +
@@ -26,7 +25,7 @@ public class IOManager {
         Pattern cnicPattern = Pattern.compile("^[A-Za-z]*$");
         Pattern emailPattern = Pattern.compile("^[A-Za-z0-9@.]+$");
         List<String> list = new ArrayList<String>();
-        logr.info("Getting user information from CLI ");
+        log.info("Getting user information from CLI ");
         try {
             System.out.println("Enter your Name:");
             String name = in.nextLine();
@@ -53,14 +52,23 @@ public class IOManager {
                 throw new IOExceptionManager("Please enter valid email");
             }
         } catch (IOExceptionManager ex) {
-            logr.warning("Exception Occurred:" + ex);
-
+            log.warn("Exception Occurred:" + ex);
         }
         return list;
     }
 
+    public void printRegCompleteMsg(){
+        log.info("Displaying Registration Successful message");
+        System.out.println("You have successfully register in the system.");
+    }
+
+    public void printRegErrorMsg(){
+        log.info("Displaying Registration error message");
+        System.out.println("You have done something wrong.");
+    }
+
     public String getUserEmail() {
-        logr.info("Getting email from the user");
+        log.info("Getting email from the user");
         String email;
         String varifiedEmail = "";
         Pattern emailPattern = Pattern.compile("^[A-Za-z0-9@.]+$");
@@ -74,29 +82,28 @@ public class IOManager {
                 throw new IOExceptionManager("Please enter valid email");
             }
         } catch (IOExceptionManager ex) {
-            logr.warning("Exception Occurred:" + ex);
-
+            log.warn("Exception Occurred:" + ex);
         }
         return varifiedEmail;
     }
 
     public void printWelComeMsg() {
-        logr.info("Showing WelCome message ");
+        log.info("Showing WelCome message ");
         System.out.println("WelCome\nNow you can purchase items!");
     }
 
     public void printRegisterFirstMsg() {
-        logr.info("Show that you are currently not Register in the system ");
+        log.info("Show that you are currently not Register in the system ");
         System.out.println("Sorry!You are not registered in our system. Please register yourself first\n");
     }
 
     public void printItemHeadingMsg() {
-        logr.info("Showing message of list of all item. ");
+        log.info("Showing message of list of all item. ");
         System.out.println("*********************\n List of All Items\n*********************");
     }
 
     public void printItems(List<Item> list) {
-        logr.info("Printing list of all items/product");
+        log.info("Printing list of all items/product");
         System.out.printf("%-8s %-15s %-10s %-10s\n", "ItemId", "ItemName", "Price", "Currency");
         Iterator<Item> iterator = list.iterator();
         while (iterator.hasNext()) {
@@ -105,7 +112,7 @@ public class IOManager {
     }
 
     public List<List> getOrderByUser() {
-        logr.info("Getting order from the user");
+        log.info("Getting order from the user");
         String tempItemId = "";
         int itemId;
         String tempqty = "";
@@ -115,7 +122,6 @@ public class IOManager {
         List<Integer> ids = new ArrayList<>();
         List<Integer> quantaties = new ArrayList<>();
         List<List> detailOfOrderedItem = new ArrayList<>();
-        Pattern charPattern = Pattern.compile("^[qcQC]+$");
         Pattern integerPattern = Pattern.compile("-?\\d+(\\.\\d+)?");
         try {
             do {
@@ -149,13 +155,13 @@ public class IOManager {
             detailOfOrderedItem.add(ids);
             detailOfOrderedItem.add(quantaties);
         } catch (IOExceptionManager ex) {
-            logr.warning("Exception Occurred" + ex);
+            log.warn("Exception Occurred" + ex);
         }
         return detailOfOrderedItem;
     }
 
     public void printOrderedItem(ResultSet rs) throws Exception {
-        logr.info("Display list of ordered item:");
+        log.info("Displaying list of ordered item:");
         System.out.println("\n\n You Ordered following items \n\n");
         System.out.printf("%-10s %-15s %-13s %-10s %-15s\n", "Order_id", "Order_Date", "Product_Name", "Quantity", "Price");
         while (rs.next()) {

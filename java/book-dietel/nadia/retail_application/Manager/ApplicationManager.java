@@ -2,6 +2,8 @@ package Manager;
 
 import Entities.Item;
 import Entities.User;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -23,7 +25,12 @@ public class ApplicationManager {
         switch (choice) {
             case 1:
                 List<String> userDetail = ioManager.getUserDetailFromCLI();
-                userManager.addUser(userDetail);
+                if(userDetail.size() == 3 ) {
+                    userManager.addUser(userDetail);
+                    ioManager.printRegCompleteMsg();
+                } else {
+                    ioManager.printRegErrorMsg();
+                }
                 break;
             case 2:
                 ioManager.printItemHeadingMsg();
@@ -60,7 +67,11 @@ public class ApplicationManager {
                 }
         }
     }
+    public static final Logger log = Logger.getLogger(ApplicationManager.class);
+
     public static void main(String[] args) throws Exception {
+
+        PropertyConfigurator.configure("log4j.properties");
 
         ApplicationManager appManager = new ApplicationManager();
         appManager.manageApplication();

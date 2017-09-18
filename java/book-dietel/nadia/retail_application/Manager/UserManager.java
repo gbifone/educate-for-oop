@@ -5,8 +5,10 @@ import Entities.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class UserManager {
+    private   final Logger log = Logger.getLogger(this.getClass());
     ConnectionManager con = null;
 
     public int getuserId() throws Exception {
@@ -17,6 +19,7 @@ public class UserManager {
     }
 
     public User addUser(List<String> strings) throws Exception {
+        log.info("Adding user in the Database");
         int userId = getuserId();
         userId++;
         con = ConnectionManager.getDbCon();
@@ -41,6 +44,7 @@ public class UserManager {
     }
 
     public User getUserByEmail(String email) throws Exception {
+        log.info("Verify user by email");
         String query = "SELECT * FROM  retail_schema.user WHERE Email = ? ";
         con = ConnectionManager.getDbCon();
         PreparedStatement ps = con.insertUsingPrepStatement(query);
