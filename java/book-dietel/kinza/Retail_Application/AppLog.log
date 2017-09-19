@@ -1,0 +1,49 @@
+2017-09-18 14:05:17  INFO  IoManager:14 - Displaying menu
+ 2017-09-18 14:05:23 INFO  ItemManager:30 - Getting list of all items from Database
+ 2017-09-18 14:05:23 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-18 14:05:27 INFO  IoManager:59 - Displaying list of all items
+ 2017-09-19 11:21:56 INFO  IoManager:14 - Displaying menu
+ 2017-09-19 11:22:04 INFO  IoManager:177 - Displaying Menu to Manage User 
+ 2017-09-19 11:22:15 INFO  IoManager:183 - Getting User Data To Update
+ 2017-09-19 11:22:29 INFO  UserManager:51 - Verifying user by email 
+ 2017-09-19 11:22:29 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-19 11:22:34 INFO  IoManager:213 - Displaying user's Personal Details 
+ 2017-09-19 11:24:46 INFO  IoManager:14 - Displaying menu
+ 2017-09-19 11:24:51 INFO  IoManager:177 - Displaying Menu to Manage User 
+ 2017-09-19 11:24:52 INFO  IoManager:183 - Getting User Data To Update
+ 2017-09-19 11:24:54 INFO  UserManager:51 - Verifying user by email 
+ 2017-09-19 11:24:54 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-19 11:24:55 INFO  IoManager:213 - Displaying user's Personal Details 
+ 2017-09-19 11:25:15 INFO  IoManager:14 - Displaying menu
+ 2017-09-19 11:25:19 INFO  IoManager:177 - Displaying Menu to Manage User 
+ 2017-09-19 11:25:20 INFO  IoManager:183 - Getting User Data To Update
+ 2017-09-19 11:25:22 INFO  UserManager:51 - Verifying user by email 
+ 2017-09-19 11:25:22 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-19 11:25:23 INFO  IoManager:213 - Displaying user's Personal Details 
+ 2017-09-19 13:37:30 INFO  IoManager:14 - Displaying menu
+ 2017-09-19 13:37:36 INFO  IoManager:217 - Displaying Menu to Manage User 
+ 2017-09-19 13:37:39 INFO  IoManager:223 - Getting User Data To Update
+ 2017-09-19 13:37:47 INFO  UserManager:51 - Verifying user by email 
+ 2017-09-19 13:37:47 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-19 13:37:48 INFO  IoManager:253 - Displaying user's Personal Details 
+ 2017-09-19 13:37:48 INFO  IoManager:270 - Displaying Menu to Update User
+ 2017-09-19 13:39:50 INFO  IoManager:76 - getting email form user
+ 2017-09-19 13:39:58 INFO  UserManager:110 - Updating User By Email 
+ 2017-09-19 14:07:54 INFO  IoManager:14 - Displaying menu
+ 2017-09-19 14:07:56 INFO  IoManager:217 - Displaying Menu to Manage User 
+ 2017-09-19 14:08:03 INFO  IoManager:223 - Getting User Data To Update
+ 2017-09-19 14:08:17 INFO  UserManager:51 - Verifying user by email 
+ 2017-09-19 14:08:17 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-19 14:08:19 INFO  IoManager:253 - Displaying user's Personal Details 
+ 2017-09-19 14:08:19 INFO  IoManager:261 - Displaying Menu to Update User
+ 2017-09-19 14:08:56 INFO  IoManager:14 - Displaying menu
+ 2017-09-19 14:09:09 INFO  IoManager:217 - Displaying Menu to Manage User 
+ 2017-09-19 14:09:10 INFO  IoManager:223 - Getting User Data To Update
+ 2017-09-19 14:09:16 INFO  UserManager:51 - Verifying user by email 
+ 2017-09-19 14:09:16 INFO  ConnectionManager:13 - Creating connection with Database
+ 2017-09-19 14:09:17 INFO  IoManager:253 - Displaying user's Personal Details 
+ 2017-09-19 14:09:17 INFO  IoManager:261 - Displaying Menu to Update User
+ 2017-09-19 14:09:22 INFO  IoManager:76 - getting email form user
+ 2017-09-19 14:09:29 INFO  UserManager:110 - Updating User By Email 
+ 2017-09-19 14:09:30 INFO  IoManager:268 - Displaying Updation Message
+ 

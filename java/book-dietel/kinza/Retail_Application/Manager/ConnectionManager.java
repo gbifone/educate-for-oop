@@ -1,13 +1,16 @@
 package Manager;
 
 import java.sql.*;
+import org.apache.log4j.Logger;
 
 public final class ConnectionManager {
+    private final Logger logger = Logger.getLogger(this.getClass());
     public Connection conn;
     private Statement statement;
     public static ConnectionManager db;
 
     public ConnectionManager() {
+        logger.info("Creating connection with Database");
         String url = "jdbc:mysql://localhost:3306?autoReconnect=true&useSSL=false";
         String dbName = "Retail_Application";
         String driver = "com.mysql.jdbc.Driver";

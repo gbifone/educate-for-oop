@@ -4,10 +4,11 @@ import Entities.Item;
 
 import java.sql.*;
 import java.util.*;
+import org.apache.log4j.Logger;
 
 public class ItemManager {
+    private final Logger logger = Logger.getLogger(this.getClass());
     ConnectionManager conn = null;
-
 
     public void addItem() {
 
@@ -26,6 +27,7 @@ public class ItemManager {
     }
 
     public List getAllItems() throws Exception {
+        logger.info("Getting list of all items from Database");
         List<Item> listOfItems = new LinkedList<>();
         conn = ConnectionManager.getDbCon();
         String query = "SELECT * FROM retail_app_schema.item ";

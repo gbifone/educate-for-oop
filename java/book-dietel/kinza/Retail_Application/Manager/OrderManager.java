@@ -4,18 +4,20 @@ import Entities.*;
 
 import java.sql.*;
 import java.util.*;
+import org.apache.log4j.Logger;
 
 public class OrderManager {
+    private final Logger logger = Logger.getLogger(this.getClass());
     ConnectionManager conn = null;
 
-    public int getOrderId() throws Exception {
+    private int getOrderIdFromDb() throws Exception {
         conn = ConnectionManager.getDbCon();
         String query = "SELECT COUNT(*) AS rowcount FROM retail_app_schema.order";
         int id = conn.idCount(query);
         return id;
     }
 
-    public int getOrderItemId() throws Exception {
+    private int getOrderItemId() throws Exception {
         conn = ConnectionManager.getDbCon();
         String query = "SELECT COUNT(*) AS rowcount FROM retail_app_schema.order_item";
         int id = conn.idCount(query);
@@ -23,7 +25,8 @@ public class OrderManager {
     }
 
     public Order createOrder( int userId ) throws Exception {
-        int orderId = getOrderId();
+        logger.info("Placing order");
+        int orderId = getOrderIdFromDb();
         orderId++;
         Timestamp currDateTime = new Timestamp(System.currentTimeMillis());
         conn = ConnectionManager.getDbCon();
@@ -43,7 +46,8 @@ public class OrderManager {
     }
 
     public int createPurchase(List<List> listOfOrderedItems) throws Exception {
-        int orderId = getOrderId();
+        logger.info("Inserting order details in Database");
+        int orderId = getOrderIdFromDb();
         int orderItemId = getOrderItemId();
         conn = ConnectionManager.getDbCon();
 
@@ -67,7 +71,7 @@ public class OrderManager {
         return orderId;
     }
 
-    public int getOrderIdByUserId(int userId) throws Exception {
+    protected int getOrderIdByUserId(int userId) throws Exception {
         conn = ConnectionManager.getDbCon();
         String insertUser = "SELECT order_ID FROM retail_app_schema.order WHERE user_ID = ?";
         PreparedStatement ps = conn.insertUsingPreparedStatement(insertUser);
@@ -79,6 +83,7 @@ public class OrderManager {
     }
 
     public ResultSet getOrderDetail(int orderId ) throws Exception{
+        logger.info("Getting details of ordered items from Database");
         conn = ConnectionManager.getDbCon();
         String query = "SELECT od.order_ID , od.dateTime, i.itemName, odi.quantity, i.price FROM ((retail_app_schema.order od INNER JOIN retail_app_schema.order_item odi ON od.order_ID = odi.order_ID) INNER  JOIN retail_app_schema.item i ON odi.Item_ID = i.item_ID) WHERE od.order_ID = ? ";
         PreparedStatement ps = conn.insertUsingPreparedStatement(query);
