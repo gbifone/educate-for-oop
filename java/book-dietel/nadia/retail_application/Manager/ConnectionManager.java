@@ -81,5 +81,4 @@ public final class ConnectionManager {
         statement.close();
         connection.close();
     }
-
 }

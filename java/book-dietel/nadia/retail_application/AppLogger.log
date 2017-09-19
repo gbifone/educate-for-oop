@@ -47,4 +47,60 @@
  2017-09-18 14:40:08 INFO  IOManager:71 - Getting email from the user
  2017-09-18 14:41:55 INFO  UserManager:47 - Verify user by email
  2017-09-18 14:42:07 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-18 15:25:40 INFO  IOManager:91 - Showing WelCome message 
+ 2017-09-18 15:25:40 INFO  IOManager:101 - Showing message of list of all item. 
+ 2017-09-18 15:25:40 INFO  ItemManager:29 - Getting all items / product from Database
+ 2017-09-18 15:25:40 INFO  IOManager:106 - Printing list of all items/product
+ 2017-09-18 15:25:40 INFO  ApplicationManager:31 - Placing order
+ 2017-09-18 15:25:40 INFO  IOManager:115 - Getting order from the user
+ 2017-09-19 11:22:14 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 11:22:21 INFO  IOManager:184 - Display Menu to Manager User
+ 2017-09-19 11:22:25 INFO  IOManager:190 - Getting user Data to Update
+ 2017-09-19 11:22:46 INFO  UserManager:43 - Verifying user by email
+ 2017-09-19 11:22:46 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 11:22:50 INFO  IOManager:220 - Displaying user Personal Detail:
+ 2017-09-19 11:25:08 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 11:25:15 INFO  IOManager:184 - Display Menu to Manager User
+ 2017-09-19 11:25:30 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 11:25:34 INFO  IOManager:184 - Display Menu to Manager User
+ 2017-09-19 11:25:36 INFO  IOManager:190 - Getting user Data to Update
+ 2017-09-19 11:25:47 INFO  UserManager:43 - Verifying user by email
+ 2017-09-19 11:25:47 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 11:25:48 INFO  IOManager:220 - Displaying user Personal Detail:
+ 2017-09-19 11:26:54 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 11:26:59 INFO  IOManager:184 - Display Menu to Manager User
+ 2017-09-19 11:27:01 INFO  IOManager:190 - Getting user Data to Update
+ 2017-09-19 11:27:10 INFO  UserManager:43 - Verifying user by email
+ 2017-09-19 11:27:10 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 11:27:11 INFO  IOManager:220 - Displaying user Personal Detail:
+ 2017-09-19 11:27:46 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 11:27:49 INFO  IOManager:184 - Display Menu to Manager User
+ 2017-09-19 11:27:51 INFO  IOManager:190 - Getting user Data to Update
+ 2017-09-19 11:28:03 INFO  UserManager:43 - Verifying user by email
+ 2017-09-19 11:28:03 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 11:28:04 INFO  IOManager:220 - Displaying user Personal Detail:
+ 2017-09-19 11:29:09 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 11:29:13 INFO  IOManager:184 - Display Menu to Manager User
+ 2017-09-19 11:29:17 INFO  IOManager:190 - Getting user Data to Update
+ 2017-09-19 11:29:26 INFO  UserManager:43 - Verifying user by email
+ 2017-09-19 11:29:26 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 11:29:27 INFO  IOManager:220 - Displaying user Personal Detail:
+ 2017-09-19 13:15:58 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 13:30:58 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 13:31:12 INFO  IOManager:224 - Display Menu to Manager User
+ 2017-09-19 13:31:18 INFO  IOManager:230 - Getting user Data to Update
+ 2017-09-19 13:31:30 INFO  UserManager:63 - Verifying user by CNIC
+ 2017-09-19 13:31:30 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 13:31:31 INFO  IOManager:260 - Displaying user Personal Detail:
+ 2017-09-19 13:31:31 INFO  IOManager:277 - Displaying Menu message to Updata User
+ 2017-09-19 13:33:08 INFO  IOManager:120 - Getting CNIC from the user
+ 2017-09-19 13:54:46 INFO  IOManager:17 - Displaying Menu
+ 2017-09-19 13:54:53 INFO  IOManager:224 - Display Menu to Manager User
+ 2017-09-19 13:54:58 INFO  IOManager:230 - Getting user Data to Update
+ 2017-09-19 13:55:11 INFO  UserManager:63 - Verifying user by CNIC
+ 2017-09-19 13:55:11 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-19 13:55:12 INFO  IOManager:260 - Displaying user Personal Detail:
+ 2017-09-19 13:55:12 INFO  IOManager:286 - Displaying Menu message to Updata User
+ 2017-09-19 13:55:24 INFO  IOManager:120 - Getting CNIC from the user
+ 2017-09-19 13:55:32 INFO  IOManager:268 - Display Updation Message
  

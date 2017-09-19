@@ -39,12 +39,8 @@ public class UserManager {
         return user;
     }
 
-    public void updateUser() {
-
-    }
-
     public User getUserByEmail(String email) throws Exception {
-        log.info("Verify user by email");
+        log.info("Verifying user by email");
         String query = "SELECT * FROM  retail_schema.user WHERE Email = ? ";
         con = ConnectionManager.getDbCon();
         PreparedStatement ps = con.insertUsingPrepStatement(query);
@@ -63,12 +59,73 @@ public class UserManager {
         return user;
     }
 
-    public void deleteUser() {
+    public User getUserByCNIC(String cnic)throws Exception{
+        log.info("Verifying user by CNIC");
+        String query = "SELECT * FROM  retail_schema.user WHERE CNIC = ? ";
+        con = ConnectionManager.getDbCon();
+        PreparedStatement ps = con.insertUsingPrepStatement(query);
+        ps.setString(1, cnic);
+        ResultSet rs = con.queryExecution(ps);
+        User user = new User();
+        if (rs.next()) {
+            if (rs.getString("CNIC") != null && rs.getString("CNIC").equals(cnic)) {
+                user.setId(rs.getInt("Id"));
+                user.setName(rs.getString("Name"));
+                user.setCNIC(rs.getString("CNIC"));
+                user.setEmail(rs.getString("Email"));
 
+            }
+        }
+        return user;
     }
 
-    public void getUserById() {
+    public int updateUser(int option, String input, String cnic) throws Exception{
+        con = ConnectionManager.getDbCon();
+        String query;
+        int res = 0;
+        switch (option){
+            case 1:
+                query = "UPDATE retail_schema.user SET Name = ?  WHERE CNIC = ? ";
+                PreparedStatement ps1 = con.insertUsingPrepStatement(query);
+                ps1.setString(1, input);
+                ps1.setObject(2,cnic);
+                res = con.queryExecutionUsingPrepStat(ps1);
+                break;
+            case 2:
+                query = "UPDATE retail_schema.user SET CNIC = ?  WHERE CNIC = ? ";
+                PreparedStatement ps2 = con.insertUsingPrepStatement(query);
+                ps2.setString(1, input);
+                ps2.setObject(2,cnic);
+                res = con.queryExecutionUsingPrepStat(ps2);
+                break;
+            case 3:
+                query = "UPDATE retail_schema.user SET Email = ?  WHERE CNIC = ? ";
+                PreparedStatement ps3 = con.insertUsingPrepStatement(query);
+                ps3.setString(1, input);
+                ps3.setObject(2,cnic);
+                res = con.queryExecutionUsingPrepStat(ps3);
+                break;
+        }
+        return res;
+    }
 
+    public int deleteUser(Boolean bool, String inputDataForDeletion) throws Exception {
+        log.info("Delete User from Database");
+        int result;
+        if (bool ) {
+            String query = "DELETE  FROM  retail_schema.user WHERE Email = ? ";
+            con = ConnectionManager.getDbCon();
+            PreparedStatement ps = con.insertUsingPrepStatement(query);
+            ps.setString(1, inputDataForDeletion);
+            result = con.queryExecutionUsingPrepStat(ps);
+        } else {
+            String query = "DELETE  FROM  retail_schema.user WHERE CNIC = ? ";
+            con = ConnectionManager.getDbCon();
+            PreparedStatement ps = con.insertUsingPrepStatement(query);
+            ps.setString(1, inputDataForDeletion);
+            result = con.queryExecutionUsingPrepStat(ps);
+        }
+        return result;
     }
 
 }

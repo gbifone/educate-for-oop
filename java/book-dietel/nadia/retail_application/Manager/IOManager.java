@@ -1,6 +1,7 @@
 package Manager;
 
 import Entities.Item;
+import Entities.User;
 import org.apache.log4j.Logger;
 import java.sql.ResultSet;
 import java.util.*;
@@ -17,12 +18,14 @@ public class IOManager {
         System.out.println("Press 1: To Registration \n" +
                            "Press 2: To View Items \n" +
                            "Press 3: To purchase Items\n" +
-                           "Press 4: To View Order Detail ");
+                           "Press 4: To View Order Detail \n" +
+                           "Press 5: To Manage User \n" +
+                           "Press 6: To Manage Item" );
     }
 
     public List<String> getUserDetailFromCLI() throws Exception {
         Pattern namePattern = Pattern.compile("^[A-Za-z]+$");
-        Pattern cnicPattern = Pattern.compile("^[A-Za-z]*$");
+        Pattern cnicPattern = Pattern.compile("^[0-9-]*$");
         Pattern emailPattern = Pattern.compile("^[A-Za-z0-9@.]+$");
         List<String> list = new ArrayList<String>();
         log.info("Getting user information from CLI ");
@@ -38,17 +41,23 @@ public class IOManager {
             System.out.println("Enter your CNIC:");
             String cnic = in.next();
             Matcher cnicMatcher = cnicPattern.matcher(cnic);
-            if (!cnicMatcher.find()) {
+            if (cnicMatcher.find()) {
                 list.add(cnic);
             } else {
                 throw new IOExceptionManager("Please enter valid CNIC");
             }
             System.out.println("Enter your Email:");
             String email = in.next();
-            Matcher emailMatcher = emailPattern.matcher(email);
-            if (emailMatcher.find()) {
-                list.add(email);
-            } else {
+            boolean bool = email.endsWith(".com");
+            if(bool) {
+                Matcher emailMatcher = emailPattern.matcher(email);
+                if (emailMatcher.find()) {
+                    list.add(email);
+                } else {
+                    throw new IOExceptionManager("Please enter valid email");
+                }
+            }
+            else {
                 throw new IOExceptionManager("Please enter valid email");
             }
         } catch (IOExceptionManager ex) {
@@ -85,6 +94,46 @@ public class IOManager {
             log.warn("Exception Occurred:" + ex);
         }
         return varifiedEmail;
+    }
+
+    public String getUserName(){
+        log.info("Getting Name from the user");
+        String name;
+        String varifiedname = "";
+        Pattern emailPattern = Pattern.compile("^[A-Za-z]+$");
+        try {
+            System.out.println("Enter your Name");
+            name = in.next();
+            Matcher emailMatcher = emailPattern.matcher(name);
+            if (emailMatcher.find()) {
+                varifiedname = name;
+            } else {
+                throw new IOExceptionManager("Please enter valid Name");
+            }
+        } catch (IOExceptionManager ex) {
+            log.warn("Exception Occurred:" + ex);
+        }
+        return varifiedname;
+    }
+
+    public String getUserCNIC(){
+        log.info("Getting CNIC from the user");
+        String cnic;
+        String varifiedCnic = "";
+        Pattern emailPattern = Pattern.compile("^[0-9-]*$");
+        try {
+            System.out.println("Enter your CNIC");
+           cnic= in.next();
+            Matcher emailMatcher = emailPattern.matcher(cnic);
+            if (emailMatcher.find()) {
+                varifiedCnic = cnic;
+            } else {
+                throw new IOExceptionManager("Please enter valid CNIC");
+            }
+        } catch (IOExceptionManager ex) {
+            log.warn("Exception Occurred:" + ex);
+        }
+        return varifiedCnic;
     }
 
     public void printWelComeMsg() {
@@ -169,5 +218,74 @@ public class IOManager {
                     rs.getDate("DateTime"), rs.getString("ItemName"),
                     rs.getInt("Quantity"), rs.getInt("Price"));
         }
+    }
+
+    public void manageUserMenu(){
+        log.info("Display Menu to Manager User");
+        System.out.println("Press 1: To Update User \n"+
+                           "Press 2: To Delete User \n");
+    }
+
+    public String getUserDataToUpdate() {
+        log.info("Getting user Data to Update");
+        String verifiedInput = "";
+        Pattern cnicPattern = Pattern.compile("^[0-9-]*$");
+        Pattern emailPattern = Pattern.compile("^[A-Za-z0-9@.]+$");
+        try {
+            System.out.println("Please enter your CNIC#/Email");
+            String data = in.next();
+            boolean bool = data.endsWith(".com");
+            if(bool){
+                    Matcher emailMatcher = emailPattern.matcher(data);
+                    if (emailMatcher.find()) {
+                        verifiedInput= data;
+                    } else {
+                        throw new IOExceptionManager("Please enter valid email");
+                    }
+            } else {
+                Matcher cnicMatcher = cnicPattern.matcher(data);
+                if (cnicMatcher.find()) {
+                    verifiedInput = data;
+                } else {
+                    throw new IOExceptionManager("Please enter valid CNIC");
+                }
+            }
+        }catch (IOExceptionManager ex){
+            log.warn("Exception Occurred" + ex);
+        }
+        return verifiedInput;
+    }
+
+    public void printUserPersonalDetail(User user){
+        log.info("Displaying user Personal Detail:");
+        System.out.println("\nYou Personal Detail\n");
+        System.out.printf("%-6s %-13s %-15s %-10s \n", "Id", "Name", "CNIC", "Email");
+        System.out.printf("%-6d %-13s %-15s %-10s \n", user.getId(),
+                    user.getName(), user.getCNIC(),user.getEmail());
+    }
+
+    public void printUpdationMsg(int result){
+        log.info("Display Updation Message");
+        if(result == 1){
+            System.out.println("User Updated successfully");
+        } else {
+            System.out.println("Something Wrong");
+        }
+    }
+
+    public void printDeletionMsg(int result){
+        log.info("Display Deletion Message");
+        if(result == 1){
+            System.out.println("User deleted successfully");
+        } else {
+            System.out.println("Something Wrong");
+        }
+    }
+
+    public void printMenuToUserUpdation(){
+        log.info("Displaying Menu message to Updata User");
+        System.out.println("Press 1: To Update User  Name \n" +
+                           "Press 2: To Update User  CNIC\n" +
+                           "Press 3: To Update User  Email");
     }
 }

@@ -16,7 +16,7 @@ public class ApplicationManager {
     UserManager userManager = new UserManager();
     ItemManager itemManager = new ItemManager();
     OrderManager orderManager = new OrderManager();
-    User user = new User();
+    User user;
     private String email = "";
 
     public void manageApplication() throws Exception {
@@ -65,6 +65,56 @@ public class ApplicationManager {
                 } else {
                     ioManager.printRegisterFirstMsg();
                 }
+                break;
+            case 5:
+                ioManager.manageUserMenu();
+                int ch = in.nextInt();
+                switch (ch){
+                    case 1:
+                        String inputData = ioManager.getUserDataToUpdate();
+                        boolean bol = inputData.endsWith(".com");
+                        if(bol){
+                             user = userManager.getUserByEmail(inputData);
+                        } else {
+                            user = userManager.getUserByCNIC(inputData);
+                        }
+                        ioManager.printUserPersonalDetail(user);
+                        ioManager.printMenuToUserUpdation();
+                        int option = in.nextInt();
+                        int res ;
+                        switch (option){
+                            case 1:
+                                String nam = ioManager.getUserName();
+                                res = userManager.updateUser(option ,nam,user.getCNIC());
+                                ioManager.printUpdationMsg(res);
+                                break;
+                            case 2:
+                                String cnic = ioManager.getUserCNIC();
+                                res = userManager.updateUser(option ,cnic,user.getCNIC());
+                                ioManager.printUpdationMsg(res);
+                                break;
+                            case 3:
+                                String email = ioManager.getUserEmail();
+                                res = userManager.updateUser(option,email,user.getCNIC());
+                                ioManager.printUpdationMsg(res);
+                                break;
+                        }
+                        break;
+                    case 2:
+                        String inputDataForDeletion = ioManager.getUserDataToUpdate();
+                        boolean bool = inputDataForDeletion.endsWith(".com");
+                        int result;
+                        if(bool){
+                            result = userManager.deleteUser(true,inputDataForDeletion);
+                        } else {
+                            result = userManager.deleteUser(false ,inputDataForDeletion);
+                        }
+                        ioManager.printDeletionMsg(result);
+                        break;
+                }
+                break;
+            case 6:
+                break;
         }
     }
     public static final Logger log = Logger.getLogger(ApplicationManager.class);
