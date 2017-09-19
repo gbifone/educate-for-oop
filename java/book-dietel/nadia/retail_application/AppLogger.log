@@ -1,0 +1,50 @@
+2017-09-18 13:02:17 INFO  ApplicationManager:16 - Displaying Menu
+ 2017-09-18 13:03:04 INFO  ApplicationManager:101 - Showing message of list of all item. 
+ 2017-09-18 13:03:05 INFO  ApplicationManager:106 - Printing list of all items/product
+ 2017-09-18 13:26:38 INFO  ApplicationManager:15 - Displaying Menu
+ 2017-09-18 13:26:45 INFO  ApplicationManager:100 - Showing message of list of all item. 
+ 2017-09-18 13:26:46 INFO  ApplicationManager:105 - Printing list of all items/product
+ 2017-09-18 13:28:48 INFO  ApplicationManager:15 - Displaying Menu
+ 2017-09-18 13:28:51 INFO  ApplicationManager:100 - Showing message of list of all item. 
+ 2017-09-18 13:28:51 INFO  ApplicationManager:28 - Getting all items / product from Database
+ 2017-09-18 13:28:53 INFO  ApplicationManager:105 - Printing list of all items/product
+ 2017-09-18 13:38:53 INFO  IOManager:18 - Displaying Menu
+ 2017-09-18 13:39:03 INFO  IOManager:103 - Showing message of list of all item. 
+ 2017-09-18 13:39:03 INFO  ApplicationManager:28 - Getting all items / product from Database
+ 2017-09-18 13:39:04 INFO  IOManager:108 - Printing list of all items/product
+ 2017-09-18 13:45:47 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 13:45:53 INFO  IOManager:101 - Showing message of list of all item. 
+ 2017-09-18 13:45:54 INFO  IOManager:106 - Printing list of all items/product
+ 2017-09-18 13:47:40 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 13:47:45 INFO  IOManager:101 - Showing message of list of all item. 
+ 2017-09-18 13:47:45 INFO  ItemManager:29 - Getting all items / product from Database
+ 2017-09-18 13:47:46 INFO  IOManager:106 - Printing list of all items/product
+ 2017-09-18 13:56:15 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 13:56:19 INFO  IOManager:28 - Getting user information from CLI 
+ 2017-09-18 13:56:40 WARN  IOManager:55 - Exception Occurred:Please enter valid email
+ 2017-09-18 13:56:40 INFO  IOManager:66 - Displaying Registration error message
+ 2017-09-18 14:15:07 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 14:15:11 INFO  IOManager:101 - Showing message of list of all item. 
+ 2017-09-18 14:15:11 INFO  ItemManager:29 - Getting all items / product from Database
+ 2017-09-18 14:15:11 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-18 14:15:12 INFO  IOManager:106 - Printing list of all items/product
+ 2017-09-18 14:36:27 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 14:36:35 INFO  IOManager:71 - Getting email from the user
+ 2017-09-18 14:37:29 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 14:37:36 INFO  IOManager:71 - Getting email from the user
+ 2017-09-18 14:37:55 INFO  UserManager:47 - Verify user by email
+ 2017-09-18 14:37:55 INFO  ConnectionManager:14 - Creating Database connection
+ 2017-09-18 14:37:57 INFO  IOManager:91 - Showing WelCome message 
+ 2017-09-18 14:37:57 INFO  IOManager:101 - Showing message of list of all item. 
+ 2017-09-18 14:37:57 INFO  ItemManager:29 - Getting all items / product from Database
+ 2017-09-18 14:37:57 INFO  IOManager:106 - Printing list of all items/product
+ 2017-09-18 14:37:57 INFO  ApplicationManager:31 - Placing order
+ 2017-09-18 14:37:57 INFO  IOManager:115 - Getting order from the user
+ 2017-09-18 14:38:40 INFO  ApplicationManager:53 - Inserting order detail in Database
+ 2017-09-18 14:38:40 INFO  ApplicationManager:86 - Getting detail of ordered item from Database
+ 2017-09-18 14:38:40 INFO  IOManager:164 - Displaying list of ordered item:
+ 2017-09-18 14:38:59 INFO  IOManager:16 - Displaying Menu
+ 2017-09-18 14:40:08 INFO  IOManager:71 - Getting email from the user
+ 2017-09-18 14:41:55 INFO  UserManager:47 - Verify user by email
+ 2017-09-18 14:42:07 INFO  ConnectionManager:14 - Creating Database connection
+ 

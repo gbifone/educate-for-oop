@@ -1,7 +1,11 @@
 package Manager;
 
 import Entities.Item;
+import Entities.User;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,6 +16,8 @@ public class ApplicationManager {
     UserManager userManager = new UserManager();
     ItemManager itemManager = new ItemManager();
     OrderManager orderManager = new OrderManager();
+    User user = new User();
+    private String email = "";
 
     public void manageApplication() throws Exception {
         ioManager.printAppMenu();
@@ -19,7 +25,12 @@ public class ApplicationManager {
         switch (choice) {
             case 1:
                 List<String> userDetail = ioManager.getUserDetailFromCLI();
-                userManager.addUser(userDetail);
+                if(userDetail.size() == 3 ) {
+                    userManager.addUser(userDetail);
+                    ioManager.printRegCompleteMsg();
+                } else {
+                    ioManager.printRegErrorMsg();
+                }
                 break;
             case 2:
                 ioManager.printItemHeadingMsg();
@@ -27,24 +38,40 @@ public class ApplicationManager {
                 ioManager.printItems(list);
                 break;
             case 3:
-                String email = ioManager.getUserEmail();
-                boolean bool = userManager.getUserByEmail(email);
-                if (bool) {
+                 email = ioManager.getUserEmail();
+                 user = userManager.getUserByEmail(email);
+                if (user != null) {
                     ioManager.printWelComeMsg();
                     ioManager.printItemHeadingMsg();
                     List<Item> listOfAllItems = itemManager.getAllItems();
                     ioManager.printItems(listOfAllItems);
-                    List<Integer> listOfIds = ioManager.getOrderByUser();
-                    List<String> listOfPurchasedItems = orderManager.purchaseItem(listOfIds);
-                    ioManager.printOrderedItem(listOfPurchasedItems);
+                    orderManager.createOrder(user.getId());
+                    List<List> listOfOrderedItem = ioManager.getOrderByUser();
+                    int orderId = orderManager.createPurchase(listOfOrderedItem);
+                    ResultSet rs = orderManager.getOrderDetail(orderId);
+                    ioManager.printOrderedItem(rs);
                 } else {
                     ioManager.printRegisterFirstMsg();
                     ioManager.getUserDetailFromCLI();
                 }
                 break;
+            case 4:
+                email = ioManager.getUserEmail();
+                user = userManager.getUserByEmail(email);
+                if (user != null) {
+                    int orderId = orderManager.getOrderIdByUserId(user.getId());
+                    ResultSet rs = orderManager.getOrderDetail(orderId);
+                    ioManager.printOrderedItem(rs);
+                } else {
+                    ioManager.printRegisterFirstMsg();
+                }
         }
     }
+    public static final Logger log = Logger.getLogger(ApplicationManager.class);
+
     public static void main(String[] args) throws Exception {
+
+        PropertyConfigurator.configure("log4j.properties");
 
         ApplicationManager appManager = new ApplicationManager();
         appManager.manageApplication();
