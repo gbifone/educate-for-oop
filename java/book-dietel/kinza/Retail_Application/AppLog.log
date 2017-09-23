@@ -46,4 +46,276 @@
  2017-09-19 14:09:22 INFO  IoManager:76 - getting email form user
  2017-09-19 14:09:29 INFO  UserManager:110 - Updating User By Email 
  2017-09-19 14:09:30 INFO  IoManager:268 - Displaying Updation Message
- 
+ 2017-09-20 12:17:20 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:17:25 INFO  IoManager:42 - getting user data from CLI
+2017-09-20 12:18:43 INFO  UserManager:38 - Verifying user
+2017-09-20 12:18:43 INFO  UserManager:21 - Adding new user In Database
+2017-09-20 12:18:43 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:18:47 INFO  IoManager:263 - Displaying Operation Status Message 
+2017-09-20 12:18:55 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:19:04 INFO  IoManager:91 - getting email form user
+2017-09-20 12:19:13 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:19:13 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:19:28 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:19:30 INFO  IoManager:91 - getting email form user
+2017-09-20 12:19:38 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:19:38 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:19:38 INFO  OrderManager:87 - Getting details of ordered items from Database
+2017-09-20 12:19:39 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:34:34 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:34:38 INFO  IoManager:91 - getting email form user
+2017-09-20 12:34:45 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:34:45 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:34:46 INFO  OrderManager:87 - Getting details of ordered items from Database
+2017-09-20 12:34:46 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:35:40 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:35:43 INFO  IoManager:91 - getting email form user
+2017-09-20 12:35:49 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:35:49 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:36:19 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:36:22 INFO  IoManager:91 - getting email form user
+2017-09-20 12:36:26 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:36:26 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:37:47 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:37:50 INFO  IoManager:91 - getting email form user
+2017-09-20 12:37:58 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:37:58 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:37:58 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:37:58 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:43:45 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:43:51 INFO  IoManager:91 - getting email form user
+2017-09-20 12:44:00 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:44:00 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:44:01 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:44:01 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:46:04 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:46:07 INFO  IoManager:91 - getting email form user
+2017-09-20 12:46:24 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:46:24 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:46:25 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:46:25 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:48:44 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:48:50 INFO  IoManager:91 - getting email form user
+2017-09-20 12:48:59 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:48:59 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:49:00 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:49:00 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:50:41 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:50:47 INFO  IoManager:91 - getting email form user
+2017-09-20 12:50:57 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:50:57 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:50:58 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:50:58 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:52:40 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:52:43 INFO  IoManager:91 - getting email form user
+2017-09-20 12:52:50 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:52:50 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:52:51 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:52:51 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:53:41 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:53:43 INFO  IoManager:91 - getting email form user
+2017-09-20 12:53:57 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:53:57 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:53:57 INFO  IoManager:145 - displaying welcome message
+2017-09-20 12:53:57 INFO  ItemManager:51 - Getting list of all items from Database
+2017-09-20 12:53:58 INFO  IoManager:81 - Displaying list of all items
+2017-09-20 12:53:58 INFO  OrderManager:29 - Placing order
+2017-09-20 12:53:58 INFO  IoManager:155 - getting order from user
+2017-09-20 12:54:11 INFO  OrderManager:50 - Inserting order details in Database
+2017-09-20 12:54:11 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:54:11 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:55:41 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:55:53 INFO  IoManager:91 - getting email form user
+2017-09-20 12:55:59 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:55:59 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:56:00 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:56:00 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:57:03 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:57:05 INFO  IoManager:91 - getting email form user
+2017-09-20 12:57:11 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:57:11 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:57:11 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:57:11 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 12:59:53 INFO  IoManager:22 - Displaying menu
+2017-09-20 12:59:55 INFO  IoManager:91 - getting email form user
+2017-09-20 12:59:57 INFO  UserManager:51 - Verifying user by email 
+2017-09-20 12:59:57 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 12:59:58 INFO  OrderManager:89 - Getting details of ordered items from Database
+2017-09-20 12:59:58 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-20 13:53:53 INFO  IoManager:22 - Displaying menu
+2017-09-20 13:54:04 INFO  IoManager:275 - Displaying Menu to Manage Item
+2017-09-20 13:54:07 INFO  IoManager:282 - Getting Item Information Form CLI
+2017-09-20 13:54:21 INFO  ItemManager:22 - Adding item in the Database
+2017-09-20 13:54:21 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 13:54:23 INFO  IoManager:266 - Displaying Operation Status Message 
+2017-09-20 13:54:30 INFO  IoManager:22 - Displaying menu
+2017-09-20 13:54:33 INFO  ItemManager:51 - Getting list of all items from Database
+2017-09-20 13:54:33 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 13:54:34 INFO  IoManager:81 - Displaying list of all items
+2017-09-20 13:54:43 INFO  IoManager:22 - Displaying menu
+2017-09-20 13:54:49 INFO  IoManager:275 - Displaying Menu to Manage Item
+2017-09-20 13:54:51 INFO  IoManager:297 - Getting Item Name To Delete Item
+2017-09-20 13:54:56 INFO  ItemManager:41 - deleting Item from Database
+2017-09-20 13:54:56 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 13:54:57 INFO  IoManager:266 - Displaying Operation Status Message 
+2017-09-20 13:55:04 INFO  IoManager:22 - Displaying menu
+2017-09-20 13:55:06 INFO  ItemManager:51 - Getting list of all items from Database
+2017-09-20 13:55:06 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 13:55:07 INFO  IoManager:81 - Displaying list of all items
+2017-09-20 13:55:12 INFO  IoManager:22 - Displaying menu
+2017-09-20 13:55:18 INFO  IoManager:275 - Displaying Menu to Manage Item
+2017-09-20 13:55:27 INFO  IoManager:297 - Getting Item Name To Delete Item
+2017-09-20 13:55:47 INFO  ItemManager:41 - deleting Item from Database
+2017-09-20 13:55:47 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-20 13:55:48 INFO  IoManager:266 - Displaying Operation Status Message 
+2017-09-23 10:49:45 INFO  IoManager:22 - Displaying menu
+2017-09-23 10:49:53 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 10:50:10 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 10:50:17 INFO  IoManager:303 - print Menu to Updating item
+2017-09-23 10:50:23 INFO  IoManager:318 - getting new Price for Item
+2017-09-23 10:50:32 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 10:50:36 INFO  ItemManager:50 - Updating Item Price 
+2017-09-23 10:50:37 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 10:54:04 INFO  IoManager:22 - Displaying menu
+2017-09-23 10:54:11 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 10:54:14 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 10:54:24 INFO  IoManager:303 - print Menu to Updating item
+2017-09-23 10:54:30 INFO  IoManager:313 - getting new name for Item
+2017-09-23 10:54:33 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 10:54:34 INFO  ItemManager:42 - Updating Item Name 
+2017-09-23 10:54:35 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:04:28 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:04:33 INFO  IoManager:216 - Displaying Menu to Manage User 
+2017-09-23 12:04:35 INFO  IoManager:222 - Getting User Data To Update
+2017-09-23 12:05:09 INFO  UserManager:122 - deleting User from Database
+2017-09-23 12:05:09 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:05:11 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:29:26 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:29:33 INFO  IoManager:42 - getting user data from CLI
+2017-09-23 12:29:44 INFO  UserManager:38 - Verifying user
+2017-09-23 12:29:44 INFO  UserManager:21 - Adding new user In Database
+2017-09-23 12:29:44 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:32:28 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:32:31 INFO  IoManager:42 - getting user data from CLI
+2017-09-23 12:32:40 INFO  UserManager:40 - Verifying user
+2017-09-23 12:32:40 INFO  UserManager:23 - Adding new user In Database
+2017-09-23 12:32:40 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:34:23 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:34:26 INFO  ItemManager:80 - Getting list of all items from Database
+2017-09-23 12:34:26 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:34:27 INFO  IoManager:81 - Displaying list of all items
+2017-09-23 12:34:32 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:34:36 INFO  IoManager:42 - getting user data from CLI
+2017-09-23 12:34:45 INFO  UserManager:40 - Verifying user
+2017-09-23 12:34:45 INFO  UserManager:23 - Adding new user In Database
+2017-09-23 12:34:45 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:34:46 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:40:50 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:40:52 INFO  ItemManager:82 - Getting list of all items from Database
+2017-09-23 12:40:52 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:40:54 INFO  IoManager:81 - Displaying list of all items
+2017-09-23 12:41:01 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:41:07 INFO  IoManager:91 - getting email form user
+2017-09-23 12:41:16 INFO  UserManager:53 - Verifying user by email 
+2017-09-23 12:41:16 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:41:16 INFO  IoManager:144 - displaying welcome message
+2017-09-23 12:41:16 INFO  ItemManager:82 - Getting list of all items from Database
+2017-09-23 12:41:16 INFO  IoManager:81 - Displaying list of all items
+2017-09-23 12:41:16 INFO  OrderManager:33 - Placing order
+2017-09-23 12:41:16 INFO  IoManager:154 - getting order from user
+2017-09-23 12:41:32 INFO  OrderManager:54 - Inserting order details in Database
+2017-09-23 12:41:33 INFO  OrderManager:93 - Getting details of ordered items from Database
+2017-09-23 12:41:33 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-23 12:42:29 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:42:36 INFO  IoManager:91 - getting email form user
+2017-09-23 12:42:44 INFO  UserManager:53 - Verifying user by email 
+2017-09-23 12:42:44 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:42:45 INFO  OrderManager:93 - Getting details of ordered items from Database
+2017-09-23 12:42:45 INFO  IoManager:202 - Displaying list of ordered items
+2017-09-23 12:42:56 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:43:00 INFO  IoManager:216 - Displaying Menu to Manage User 
+2017-09-23 12:43:25 INFO  IoManager:222 - Getting User Data To Update
+2017-09-23 12:43:47 INFO  UserManager:53 - Verifying user by email 
+2017-09-23 12:43:47 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:43:48 INFO  IoManager:250 - Displaying user's Personal Details 
+2017-09-23 12:43:48 INFO  IoManager:258 - Displaying Menu to Update User
+2017-09-23 12:43:59 INFO  IoManager:125 - getting cnic form user
+2017-09-23 12:44:02 INFO  UserManager:104 - Updating User By CNIC 
+2017-09-23 12:44:02 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:44:38 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:44:41 INFO  IoManager:216 - Displaying Menu to Manage User 
+2017-09-23 12:44:44 INFO  IoManager:222 - Getting User Data To Update
+2017-09-23 12:44:47 INFO  UserManager:53 - Verifying user by email 
+2017-09-23 12:44:47 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:44:48 INFO  IoManager:250 - Displaying user's Personal Details 
+2017-09-23 12:44:48 INFO  IoManager:258 - Displaying Menu to Update User
+2017-09-23 12:44:52 INFO  IoManager:110 - getting name form user
+2017-09-23 12:44:57 INFO  UserManager:96 - Updating User By Name 
+2017-09-23 12:44:57 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:45:39 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:45:42 INFO  IoManager:216 - Displaying Menu to Manage User 
+2017-09-23 12:46:00 INFO  IoManager:222 - Getting User Data To Update
+2017-09-23 12:46:03 INFO  UserManager:53 - Verifying user by email 
+2017-09-23 12:46:03 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:46:03 INFO  IoManager:250 - Displaying user's Personal Details 
+2017-09-23 12:46:03 INFO  IoManager:258 - Displaying Menu to Update User
+2017-09-23 12:46:07 INFO  IoManager:91 - getting email form user
+2017-09-23 12:46:17 INFO  UserManager:112 - Updating User By Email 
+2017-09-23 12:46:17 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:46:43 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:47:34 INFO  IoManager:216 - Displaying Menu to Manage User 
+2017-09-23 12:47:39 INFO  IoManager:222 - Getting User Data To Update
+2017-09-23 12:47:48 INFO  UserManager:124 - deleting User from Database
+2017-09-23 12:47:48 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:47:48 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:49:08 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:49:14 INFO  IoManager:216 - Displaying Menu to Manage User 
+2017-09-23 12:49:16 INFO  IoManager:222 - Getting User Data To Update
+2017-09-23 12:49:23 INFO  UserManager:124 - deleting User from Database
+2017-09-23 12:49:23 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:49:24 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:51:51 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:51:57 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 12:58:28 INFO  IoManager:281 - Getting Item Information Form CLI
+2017-09-23 12:59:06 INFO  ItemManager:24 - Adding item in the Database
+2017-09-23 12:59:06 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 12:59:06 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 12:59:27 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:59:29 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 12:59:31 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 12:59:35 INFO  IoManager:303 - print Menu to Updating item
+2017-09-23 12:59:40 INFO  IoManager:22 - Displaying menu
+2017-09-23 12:59:54 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 13:00:15 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 13:00:17 INFO  IoManager:303 - print Menu to Updating item
+2017-09-23 13:00:23 INFO  IoManager:324 - getting new name for Item
+2017-09-23 13:00:27 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 13:00:28 INFO  ItemManager:60 - Updating Item Currency 
+2017-09-23 13:00:28 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 13:00:39 INFO  IoManager:22 - Displaying menu
+2017-09-23 13:00:42 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 13:00:46 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 13:00:50 INFO  IoManager:303 - print Menu to Updating item
+2017-09-23 13:00:52 INFO  IoManager:318 - getting new Price for Item
+2017-09-23 13:01:02 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 13:01:02 INFO  ItemManager:52 - Updating Item Price 
+2017-09-23 13:01:03 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 13:01:13 INFO  IoManager:22 - Displaying menu
+2017-09-23 13:01:17 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 13:01:19 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 13:01:22 INFO  IoManager:303 - print Menu to Updating item
+2017-09-23 13:01:23 INFO  IoManager:313 - getting new name for Item
+2017-09-23 13:01:28 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 13:01:29 INFO  ItemManager:44 - Updating Item Name 
+2017-09-23 13:01:29 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 13:01:38 INFO  IoManager:22 - Displaying menu
+2017-09-23 13:01:42 INFO  IoManager:274 - Displaying Menu to Manage Item
+2017-09-23 13:01:44 INFO  IoManager:296 - Getting Item Name To Manage Item
+2017-09-23 13:01:49 INFO  ItemManager:72 - deleting Item from Database
+2017-09-23 13:01:49 INFO  ConnectionManager:14 - Creating connection with Database
+2017-09-23 13:01:50 INFO  IoManager:265 - Displaying Operation Status Message 
+2017-09-23 13:34:07 INFO  IoManager:22 - Displaying menu
+2017-09-23 13:34:08 INFO  IoManager:42 - getting user data from CLI
+2017-09-23 13:34:19 ERROR IoExceptionManager:10 - Please enter a valid name
+2017-09-23 13:34:19 WARN  IoManager:70 - Exception Occur: null
+2017-09-23 13:34:19 INFO  UserManager:40 - Verifying user

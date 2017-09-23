@@ -13,22 +13,23 @@ public class ApplicationManager {
     ItemManager itemManager = new ItemManager();
     UserManager userManager = new UserManager();
     OrderManager orderManager = new OrderManager();
-    private String email = "";
+    private String email = "", name = "", cnic = "", inputData = "";
     private User user;
+    private int result, choice;
+    private boolean bool = false;
+    ResultSet rs = null;
 
     public void manageApplication() throws Exception {
         ioManager.printMenuMsg();
-        int choice = input.nextInt();
+        choice = input.nextInt();
 
         switch (choice) {
             case 1:
                 user = ioManager.getUserDetailFormCLI();
-                boolean bool = userManager.verifyUser(user);
-                if(bool) {
-                    userManager.addUser(user);
-                    ioManager.printRegCompletedMsg();
-                } else {
-                    ioManager.printRegErrorMsg();
+                bool = userManager.checkUserForEmptyValues(user);
+                if (bool) {
+                    result = userManager.addUser(user);
+                    ioManager.printOperationStatusMsg(result);
                 }
                 break;
             case 2:
@@ -36,17 +37,17 @@ public class ApplicationManager {
                 ioManager.printAllItems(li);
                 break;
             case 3:
-                email = ioManager.getEmailFromUser();
-                user = userManager.getUserByEmail( email );
-                if ( user != null ) {
+                email = ioManager.getEmailToVerifyUser();
+                user = userManager.getUserByEmail(email);
+                if (user != null) {
                     ioManager.printWelcomeMsg();
                     List<Item> listOfAllItems = itemManager.getAllItems();
                     ioManager.printAllItems(listOfAllItems);
-                    orderManager.createOrder( user.getUserId( ) );
-                    List<List> listOfOrderedItems = ioManager.getOrderByUser( );
-                    int orderId = orderManager.createPurchase( listOfOrderedItems );
-                    ResultSet rs = orderManager.getOrderDetail( orderId );
-                    ioManager.printOrderedItems(rs);
+                    orderManager.createOrder(user.getUserId());
+                    List<List> listOfOrderedItems = ioManager.getOrderByUser();
+                    int orderId = orderManager.createPurchase(listOfOrderedItems);
+                    ResultSet rs = orderManager.getOrderDetail(orderId);
+                    ioManager.printOrderedItems( rs );
                 } else {
                     ioManager.printRegWarningMsg();
                     user = ioManager.getUserDetailFormCLI();
@@ -54,11 +55,11 @@ public class ApplicationManager {
                 }
                 break;
             case 4:
-                email = ioManager.getEmailFromUser();
-                user = userManager.getUserByEmail( email );
-                if ( user != null ) {
-                    int orderId = orderManager.getOrderIdByUserId( user.getUserId() );
-                    ResultSet rs = orderManager.getOrderDetail( orderId );
+                email = ioManager.getEmailToVerifyUser();
+                user = userManager.getUserByEmail(email);
+                if (user != null) {
+                    int orderId = orderManager.getOrderIdByUserId(user.getUserId());
+                    rs = orderManager.getOrderDetail(orderId);
                     ioManager.printOrderedItems(rs);
                 } else {
                     ioManager.printRegWarningMsg();
@@ -68,62 +69,96 @@ public class ApplicationManager {
                 break;
             case 5:
                 ioManager.manageUserMenu();
-                int ch = input.nextInt();
-                switch (ch){
+                choice = input.nextInt();
+                switch (choice) {
                     case 1:
-                        String data = ioManager.getUserDataToUpdate();
-                        boolean bol = data.endsWith(".com");
-                        if( bol ){
-                            user = userManager.getUserByEmail(data);
+                        inputData = ioManager.getUserDataToUpdate();
+                        bool = ioManager.checkInputForEmailOrCnic( inputData );
+                        if (bool) {
+                            user = userManager.getUserByEmail(inputData);
                         } else {
-                            user = userManager.getUserByCnic(data);
+                            user = userManager.getUserByCnic(inputData);
                         }
-                        ioManager.printUserPersonalDetail( user );
+                        ioManager.printUserPersonalDetail(user);
                         ioManager.printMenuToUpdateUser();
-                        int option = input.nextInt();
-                        int rs;
-                        switch (option ){
+                        choice = input.nextInt();
+                        switch (choice) {
                             case 1:
-                                String name = ioManager.getNameFromUser();
-                                rs = userManager.updateUser( option, name , user.getUserEmail());
-                                ioManager.printUpdationMsg( rs );
+                                name = ioManager.getNewValueForUser(choice);
+                                result = userManager.updateUser(choice, name, user);
+                                ioManager.printOperationStatusMsg(result);
                                 break;
                             case 2:
-                                String cnic = ioManager.getCnicFromUser();
-                                rs = userManager.updateUser( option, cnic, user.getUserEmail() );
-                                ioManager.printUpdationMsg( rs );
+                                cnic = ioManager.getNewValueForUser(choice);
+                                result = userManager.updateUser(choice, cnic, user);
+                                ioManager.printOperationStatusMsg(result);
                                 break;
                             case 3:
-                                String email = ioManager.getEmailFromUser();
-                                rs = userManager.updateUser( option, email, user.getUserEmail() );
-                                ioManager.printUpdationMsg( rs );
+                                email = ioManager.getEmailToVerifyUser();
+                                result = userManager.updateUser(choice, email, user);
+                                ioManager.printOperationStatusMsg(result);
                                 break;
                         }
                         break;
                     case 2:
-                        String userInput = ioManager.getUserDataToUpdate();
-                        boolean bool1 = userInput.endsWith(".com");
-                        int result;
-                        if( bool1 ) {
-                            result = userManager.deleteUser( true, userInput );
+                        inputData = ioManager.getUserDataToUpdate();
+                        bool = inputData.endsWith(".com");
+                        if (bool) {
+                            result = userManager.deleteUser(true, inputData);
                         } else {
-                            result = userManager.deleteUser( false, userInput );
+                            result = userManager.deleteUser(false, inputData);
                         }
-                        ioManager.printDeletionMsg( result );
+                        ioManager.printOperationStatusMsg(result);
                         break;
                 }
                 break;
             case 6:
+                ioManager.manageItemMenu();
+                choice = input.nextInt();
+                switch (choice){
+                    case 1:
+                        Item item = ioManager.getItemDetailFormCLI();
+                        result = itemManager.addItem( item );
+                        ioManager.printOperationStatusMsg( result );
+                        break;
+                    case 2:
+                        inputData = ioManager.getItemNameToManageItem();
+                        ioManager.printMenuToUpdateItem();
+                        choice = input.nextInt();
+                        Object object ;
+                        switch ( choice ){
+                            case 1:
+                                object = ioManager.getNewValueForItem( choice );
+                                result = itemManager.updateItem( choice, object , inputData);
+                                ioManager.printOperationStatusMsg(result);
+                                break;
+                            case 2:
+                                object = ioManager.getNewValueForItem( choice );
+                                result = itemManager.updateItem( choice, object , inputData);
+                                ioManager.printOperationStatusMsg(result);
+                                break;
+                            case 3:
+                                object = ioManager.getNewValueForItem( choice );
+                                result = itemManager.updateItem( choice, object , inputData);
+                                ioManager.printOperationStatusMsg(result);
+                                break;
+                        }
+                        break;
+                    case 3:
+                        inputData = ioManager.getItemNameToManageItem();
+                        result = itemManager.deleteItem( inputData );
+                        ioManager.printOperationStatusMsg( result );
+                        break;
+                }
                 break;
         }
     }
-    public static  Logger logger = Logger.getLogger(ApplicationManager.class);
+
+    public static Logger logger = Logger.getLogger(ApplicationManager.class);
 
     public static void main(String[] args) throws Exception {
 
         PropertyConfigurator.configure("log4j.properties");
-        //LogManager logManager = new LogManager();
-        //logManager.setLogger();
 
         ApplicationManager applicationManager = new ApplicationManager();
         applicationManager.manageApplication();
