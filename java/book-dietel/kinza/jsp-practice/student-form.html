@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration form</title>
+</head>
+<body>
+    <form action="student-response.jsp">
+
+    First Name: <input type="text" name="firstName" />
+        <br/><br/>
+    Last Name: <input type="text" name="lastName" />
+        <br/><br/>
+    Country: <select name="country">
+                <option>Pakistan</option>
+                <option>India</option>
+                <option>London</option>
+                <option>Brazil</option>
+            </select>
+        <br/><br/>
+        Favorite Programing Language:
+        <br/>
+        <input type="radio" name="favoriteLanguage" value="java" /> java
+        <input type="radio" name="favoriteLanguage" value="C++" /> C++
+        <input type="radio" name="favoriteLanguage" value="C#" /> PHP
+        <input type="radio" name="favoriteLanguage" value="ruby" /> ruby
+        <br/><br/>
+        Favorite Games:
+        <br/>
+        <input type="checkbox" name="favoriteGames" value="cricket" />Cricket
+        <input type="checkbox" name="favoriteGames" value="hockey" /> Hockey
+        <input type="checkbox" name="favoriteGames" value="badminton" /> Badminton
+        <input type="checkbox" name="favoriteGames" value="football" /> FootBall
+        <br/><br/>
+    <input type="submit" name="submit" />
+    </form>
+</body>
+</html>
